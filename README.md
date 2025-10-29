@@ -1,5 +1,5 @@
 <h1 align="center"> 
-    🍽️ PKPlace: Estratégia de Demanda Otimizada.<br>
+    🛎️ PKPlace: Estratégia de Demanda Otimizada<br>
 </h1>
 
 <p align="center">
