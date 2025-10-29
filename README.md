@@ -1,9 +1,13 @@
 <h1 align="center"> 
-    # 🍽️ PKPlace
+    🍽️ PKPlace<br>
+    Conectando Clientes a Sabores em Horários Exclusivos
 </h1>
-<h1 align="center">
-    # Conectando Clientes a Sabores em Horários Exclusivos
-</h1>
+
+<p align="center">
+    Site do Projeto
+    [Clique Aqui: Projeto PKPlace](https://www.youtube.com)
+</p>
+
 
 🌟 Visão Geral do Projeto
 
