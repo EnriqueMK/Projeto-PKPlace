@@ -1,8 +1,7 @@
 <h1 align="center"> 
     🛎️ PKPlace: Estratégia de Demanda Otimizada<br>
 </h1>
-[![Python 3.8+](link)](link)
-[![License: MIT](link)](link)
+[![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue)]()
 
 
 🌟 Visão Geral do Projeto
