@@ -1,11 +1,8 @@
 <h1 align="center"> 
     🛎️ PKPlace: Estratégia de Demanda Otimizada<br>
 </h1>
-
-<p align="center">
-    Site do Projeto<br>
-    <a href="https://www.youtube.com">Clique aqui para acessar o Projeto</a>
-</p>
+[![Python 3.8+](link)](link)
+[![License: MIT](link)](link)
 
 
 🌟 Visão Geral do Projeto
