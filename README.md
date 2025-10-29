@@ -1,4 +1,7 @@
-# 🍽️ PKPlace: Conectando Clientes a Sabores em Horários Exclusivos
+<div align="center">
+    # 🍽️ PKPlace
+    # Conectando Clientes a Sabores em Horários Exclusivos
+</div>
 
 🌟 Visão Geral do Projeto
 
