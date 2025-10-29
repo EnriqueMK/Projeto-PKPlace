@@ -1,7 +1,7 @@
 <h1 align="center"> 
     🛎️ PKPlace: Estratégia de Demanda Otimizada<br>
 </h1>
-![Angular](https://img.shields.io/badge/Angular-SPA-red?logo=angular&logoColor=white)
+![Teste](https://img.shields.io/badge/Teste-Simples-lightgrey)
 
 
 🌟 Visão Geral do Projeto
