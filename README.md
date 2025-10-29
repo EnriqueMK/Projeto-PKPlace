@@ -1,6 +1,5 @@
 <h1 align="center"> 
-    🍽️ PKPlace<br>
-    Conectando Clientes a Horários Exclusivos
+    🍽️ PKPlace: Estratégia de Demanda Otimizada.<br>
 </h1>
 
 <p align="center">
