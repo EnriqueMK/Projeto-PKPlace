@@ -1,6 +1,8 @@
 <h1 align="center"> 
     🍽️ PKPlace<br>
-    Conectando Clientes a Sabores em Horários Exclusivos
+    <h2>
+        Conectando Clientes a Sabores em Horários Exclusivos
+    </h2>
 </h1>
 
 <p align="center">
