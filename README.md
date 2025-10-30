@@ -21,5 +21,3 @@ O PKPlace ataca essa dor de negócio:
 • Aumenta a Visibilidade: Oferece uma vitrine digital para pequenos negócios que competem com grandes cadeias.
 
 • Fideliza Clientes: Transforma ofertas em incentivos para visitas recorrentes.
-
-a
