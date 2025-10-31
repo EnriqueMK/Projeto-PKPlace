@@ -1,7 +1,6 @@
 <h1 align="center"> 
     🛎️ PKPlace: Estratégia de Demanda Otimizada<br>
 </h1>
-![Teste](https://img.shields.io/badge/Teste-Simples-lightgrey)
 
 
 🌟 Visão Geral do Projeto
