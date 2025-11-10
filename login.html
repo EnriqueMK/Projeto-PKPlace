@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login e Conteúdo</title>
+    <!-- Linka o arquivo CSS -->
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header class="fixed-header">
+        <img src="https://i.postimg.cc/L6BcKhjs/LOGOCIRCULO.png" class="logo-text">
+        <nav id="linknav">
+            <a href="#">Login</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+            <a href="#">Sou Parceiro</a>
+        </nav>
+        <div id="linha"></div>
+        <input id="cc" type="submit" value="Cadastrar">
+    </header>
+
+    <!-- 1. SEÇÃO DE HERO (LOGIN) - Onde a imagem de fundo aparece -->
+    <div class="hero-section">
+        <!-- O overlay (camada preta) será aplicado aqui via CSS -->
+        
+        <!-- Lado esquerdo: Texto -->
+        <div class="text-side">
+            <p>A mesa que mais precisa de você, paga menos.</p>
+        </div>
+        
+        <!-- Lado direito: Bloco de login -->
+        <div class="login-side">
+            <div class="login-container">
+                <form class="login-form">
+                    <h2>Login</h2>
+                    
+                    <div class="input-group">
+                        <label for="username">Usuário</label>
+                        <input type="text" id="username" name="username" placeholder="Seu nome de usuário" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" placeholder="Sua senha" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-login">ENTRAR</button>
+                    
+                    <div class="links">
+                        <a href="#">Esqueci a Senha</a>
+                        <a href="#">Criar Conta</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- 2. SEÇÃO DE CONTEÚDO ADICIONAL - Que terá fundo branco e aparecerá ao rolar -->
+    <div class="content-section">
+        <div class="content-wrapper">
+            <h1>Sobre o PK Place</h1>
+            <p style="color: #f12435;">PK Place é uma ferramenta de reservas que transforma o movimento do restaurante em desconto para você! </p>
+            <p>Como funciona? É simples: ao reservar e movimentar o restaurante em horários de baixa demanda, você é recompensado com descontos incríveis de até 50% na sua conta de alimentos. É o seu paladar feliz com o seu bolso agradecido.</p>
+            <div class="info-card">
+                <h3>Cliente?</h3>
+                <p>Queremos garantir que você coma bem e pague menos por experiências inesquecíveis.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>Parceiro?</h3>
+                <p>Priorizamos a movimentação do seu estabelecimento em qualquer horário, fazendo o dinheiro entrar até nas horas mais difíceis.</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
