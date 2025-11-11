@@ -1,3 +1,6 @@
+// Mensagem de erro global
+var msgError = document.querySelector("#msg-error");
+
 // Map para armazenar o texto de desconto gerado dinamicamente
 const dynamicDiscountMap = new Map();
 
@@ -6,18 +9,53 @@ function redirecionarCadastro() {
     window.location.href = 'cadastro.html';
 }
 
-// Função de login modificada
-function loginUsuario() {
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value.trim();
-    
-    if (username === '' || password === '') {
-        alert('Por favor, preencha todos os campos (usuário e senha) antes de fazer login.');
-        return; 
+// Cadastra o usuário 
+function cadastrarUsuario(event) {
+    // Impede o formulário enviar automaticamente
+    event.preventDefault();
+
+    const user = document.querySelector("#nome").value.trim();
+    const em = document.querySelector("#email").value.trim();
+    const pass = document.querySelector("#senha").value.trim();
+    const confirmPass = document.querySelector("#confirmar-senha").value.trim();
+
+    if (pass === confirmPass) {
+        // Armazena os dados em um Objeto
+        const dados = {
+            usuario: user,
+            email: em,
+            senha: pass
+        };
+
+        // Coloca os dados do Objeto no localStorage
+        localStorage.setItem("login", JSON.stringify(dados));
+        alert("Cadastro feito com sucesso!");
+        window.location.href = "index.html"
+    } else {
+        msgError.innerHTML = "As senhas não coincidem. Tente novamente!"
     }
-    
-    alert('Login realizado com sucesso! Redirecionando para o dashboard...');
-    window.location.href = 'dashboard.html'; 
+}
+
+function loginUsuario(event) {
+    event.preventDefault();
+
+    const user = document.querySelector("#username").value.trim();
+    const pass = document.querySelector("#password").value.trim();
+
+    // Pega os dados salvos no localStorage e joga em um Objeto
+    const loginSalvo = JSON.parse(localStorage.getItem("login"));
+
+    if (localStorage.getItem("login")) {
+        if (user === loginSalvo.email && pass === loginSalvo.senha) {
+            alert("Login realizado com sucesso! Redirecionando para a página inicial...")
+            window.location.href = "dashboard.html";
+        } else {
+            msgError.style.color = "red";
+            msgError.innerHTML = "ERRO! Email ou senha incorretos.";
+        }
+    } else {
+        msgError.innerHTML = `Você não tem cadastro <a href="cadastro.html" style="color: red;">Cadastre aqui!<a>`
+    }
 }
 
 
