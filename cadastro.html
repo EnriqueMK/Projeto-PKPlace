@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - PK Place</title>
+    <!-- Linka o arquivo CSS existente -->
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header class="fixed-header">
+        <img src="https://i.postimg.cc/L6BcKhjs/LOGOCIRCULO.png" class="logo-text">
+        <nav id="linknav">
+            <a href="index.html">Login</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+            <a href="#">Sou Parceiro</a>
+        </nav>
+        <div id="linha"></div>
+        <button id="cc" onclick="redirecionarCadastro()">Cadastrar</button>
+    </header>
+
+    <!-- Seção de Cadastro, similar à hero-section -->
+    <div class="hero-section">
+        <!-- Overlay aplicado via CSS -->
+        
+        <!-- Lado esquerdo: Texto -->
+        <div class="text-side">
+            <p>Junte-se ao PK Place e economize nas suas refeições!</p>
+        </div>
+        
+        <!-- Lado direito: Bloco de cadastro -->
+        <div class="login-side">
+            <div class="login-container">
+                <form class="login-form" onsubmit="cadastrarUsuario(); return false;">
+                    <h2>Cadastro</h2>
+                    
+                    <div class="input-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Seu email" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha" placeholder="Sua senha" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="confirmar-senha">Confirmar Senha</label>
+                        <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Confirme sua senha" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-login">CADASTRAR</button>
+                    
+                    <div class="links">
+                        <a href="index.html">Já tenho conta - Fazer Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- Seção de conteúdo adicional, similar ao index.html -->
+    <div class="content-section">
+        <div class="content-wrapper">
+            <h1>Bem-vindo ao PK Place</h1>
+            <p style="color: #f12435;">Cadastre-se e comece a economizar em suas refeições favoritas!</p>
+            <p>Ao se cadastrar, você terá acesso a reservas com descontos exclusivos em horários de baixa demanda.</p>
+            <div class="info-card">
+                <h3>Por que se cadastrar?</h3>
+                <p>Descontos de até 50% em restaurantes parceiros, reservas fáceis e recompensas por fidelidade.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

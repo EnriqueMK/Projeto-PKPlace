@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="novocadastro.css">
+    <title>novo parceiro</title>
+</head>
+<body>
+
+     <header class="fixed-header">
+        <img src="https://i.postimg.cc/L6BcKhjs/LOGOCIRCULO.png" class="logo-text">
+        <nav id="linknav">
+            <a href="dashboard.html">Início</a>
+            <a href="#">Reservas</a>
+            <a href="#">Ajuda</a>
+            <a href="index.html">Sair</a>
+        </nav>
+        <div id="linha"></div>
+        <button id="cc" onclick="window.location.href='novocadastro.html'">Novo Parceiro</button>
+    </header>
+
+    <div class="login-side">
+            <div class="login-container">
+                <form class="login-form">
+                    <h2>Novo Parceiro</h2>
+                    
+                    <div class="input-group">
+                        <label for="nomerestaurante">Nome do Restaurante</label>
+                        <input type="text" id="nomerestaurante" name="nomerestaurante" placeholder="Nome do Restaurante" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Localização">Localização</label>
+                        <input type="text" id="Localização" name="Localização" placeholder="Sua Localização" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="porque">Porque quer ser nosso parceiro ?</label>
+                        <textarea name="porque" id="porque"></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="ramo">Ramo Culinario</label>
+                        <select name="ramo" id="ramo">
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="reuniao">Tem disponibilidade para uma reuniao ?</label>
+                        <label for="reuniao">Sim<input type="radio" id="reuniao" name="reuniao" required></label>
+                        <label for="reuniao">Nao<input type="radio" id="reuniao" name="reuniao" required></label><!--coloca no javascript para salvar a resposta(sim ou n) para caso ele queira uma reuniao-->
+                    </div>
+
+                    <div class="input-group">
+                        <label for="numero">Numero de contato</label>
+                        <input type="text" id="numero" name="numero" placeholder="Numero de contato" required><!--coloca no javascript que so pode colocar numero na area-->
+                    </div>
+                    
+                    <button type="button" class="btn-login" onclick="loginUsuario()">ENVIAR</button>
+                
+                </form>
+            </div>
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

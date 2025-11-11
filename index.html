@@ -17,12 +17,11 @@
             <a href="#">Sou Parceiro</a>
         </nav>
         <div id="linha"></div>
-        <input id="cc" type="submit" value="Cadastrar">
+        <!-- Alterado para button com onclick para redirecionar -->
+        <button id="cc" onclick="redirecionarCadastro()">Cadastrar</button>
     </header>
 
-    <!-- 1. SEÇÃO DE HERO (LOGIN) - Onde a imagem de fundo aparece -->
     <div class="hero-section">
-        <!-- O overlay (camada preta) será aplicado aqui via CSS -->
         
         <!-- Lado esquerdo: Texto -->
         <div class="text-side">
@@ -45,11 +44,12 @@
                         <input type="password" id="password" name="password" placeholder="Sua senha" required>
                     </div>
                     
-                    <button type="submit" class="btn-login" onclick="loginUsuario()">ENTRAR</button>
+                    <button type="button" class="btn-login" onclick="loginUsuario()">ENTRAR</button>
                     
                     <div class="links">
                         <a href="#">Esqueci a Senha</a>
-                        <a href="#">Criar Conta</a>
+                        <!-- Alterado href para redirecionar para cadastro.html -->
+                        <a href="cadastro.html">Criar Conta</a>
                     </div>
                 </form>
             </div>
@@ -57,7 +57,7 @@
         
     </div>
     
-    <!-- 2. SEÇÃO DE CONTEÚDO ADICIONAL - Que terá fundo branco e aparecerá ao rolar -->
+    <!-- 2. SEÇÃO DE CONTEÚDO ADICIONAL -->
     <div class="content-section">
         <div class="content-wrapper">
             <h1>Sobre o PK Place</h1>

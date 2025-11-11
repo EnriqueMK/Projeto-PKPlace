@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Reserva</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="reserva.css">
+</head>
+<body>
+    <header class="fixed-header">
+        <img src="https://i.postimg.cc/L6BcKhjs/LOGOCIRCULO.png" class="logo-text">
+        <nav id="linknav">
+            <a href="dashboard.html">Início</a>
+            <a href="#">Reservas</a>
+            <a href="#">Ajuda</a>
+            <a href="index.html">Sair</a>
+        </nav>
+        <div id="linha"></div>
+        <button id="cc" onclick="window.location.href='cadastro.html'">Novo Parceiro</button>
+    </header>
+
+    <div class="content-section" style="padding-top: 100px;">
+        <div class="content-wrapper">
+            <h1 id="restaurant-name">Detalhes do Restaurante</h1>
+            
+            <div class="reserva-details-container">
+                
+                <img id="restaurant-image" src="" alt="Foto do Restaurante">
+                
+                <div class="details-text">
+                    <h2 id="details-name"></h2>
+                    <p id="details-description"></p>
+                    <p id="details-address" class="address-text"></p> <p id="details-discount" class="discount"></p>
+                    
+                    <button class="btn-reserve final-reserve-btn">Confirmar Reserva</button>
+                    <button class="btn-back" onclick="window.location.href='dashboard.html'">Voltar ao Dashboard</button>
+                </div>
+            </div>
+
+            <div class="dish-menu-section">
+                <h2>Pratos Populares</h2>
+                
+                <div class="carousel-container">
+                    <button class="scroll-btn left-btn" aria-label="Rolar para a esquerda">
+                        &lt; </button>
+                    
+                    <div id="popular-dishes-container" class="dishes-grid">
+                        </div>
+                    
+                    <button class="scroll-btn right-btn" aria-label="Rolar para a direita">
+                        &gt; </button>
+                </div>
+            </div>
+            </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const dishesContainer = document.getElementById('popular-dishes-container');
+        const leftBtn = document.querySelector('.left-btn');
+        const rightBtn = document.querySelector('.right-btn');
+        
+        // **Define o tamanho da rolagem.** // 300px é um bom valor para rolar aproximadamente um cartão e meio,
+        // dando a sensação de continuidade.
+        const scrollAmount = 300; 
+
+        // Função de navegação que move o contêiner horizontalmente
+        function scrollCarousel(direction) {
+            if (direction === 'left') {
+                // Rola para a esquerda (valor negativo)
+                dishesContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else if (direction === 'right') {
+                // Rola para a direita (valor positivo)
+                dishesContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+        
+        // Adiciona os Event Listeners
+        leftBtn.addEventListener('click', () => scrollCarousel('left'));
+        rightBtn.addEventListener('click', () => scrollCarousel('right'));
+    });
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dishesContainer = document.getElementById('popular-dishes-container');
+            const leftBtn = document.querySelector('.left-btn');
+            const rightBtn = document.querySelector('.right-btn');
+            
+            const scrollAmount = 300; // Quantidade de pixels para rolar (ajuste conforme o tamanho do seu card)
+
+            // Função de navegação
+            function scrollCarousel(direction) {
+                if (direction === 'left') {
+                    dishesContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                } else if (direction === 'right') {
+                    dishesContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            }
+            
+            // Event Listeners para as setas
+            leftBtn.addEventListener('click', () => scrollCarousel('left'));
+            rightBtn.addEventListener('click', () => scrollCarousel('right'));
+            
+            
+            // --- Lógica de Carregamento de Dados ---
+            
+            const restaurantDataJSON = localStorage.getItem('selectedRestaurant');
+            
+            if (!restaurantDataJSON) {
+                document.getElementById('restaurant-name').textContent = 'Erro: Nenhum restaurante selecionado.';
+                return;
+            }
+            
+            const rawData = JSON.parse(restaurantDataJSON);
+            const dishes = JSON.parse(rawData.dishes || '[]'); 
+
+            // 2. Atualiza os elementos da página com os dados do restaurante
+            document.getElementById('restaurant-name').textContent = rawData.name;
+            document.getElementById('restaurant-image').src = rawData.img;
+            document.getElementById('details-name').textContent = rawData.name;
+            document.getElementById('details-description').textContent = rawData.desc;
+            document.getElementById('details-address').textContent = `Endereço: ${rawData.address}`; // NOVO: Injeta o endereço
+            document.getElementById('details-discount').textContent = rawData.discountText;
+
+            // 3. Renderiza os pratos populares
+            if (dishes.length > 0) {
+                dishes.forEach(dish => {
+                    const dishHtml = `
+                        <div class="dish-card">
+                            <img src="${dish.img}" alt="${dish.name}" class="dish-photo-placeholder">
+                            <p class="dish-name">${dish.name}</p>
+                        </div>
+                    `;
+                    dishesContainer.innerHTML += dishHtml;
+                });
+            } else {
+                dishesContainer.innerHTML = '<p style="text-align: center; width: 100%;">Nenhum prato popular listado para este restaurante.</p>';
+                // Oculta os botões se não houver pratos para rolar
+                document.querySelector('.carousel-container').style.display = 'block';
+                leftBtn.style.display = 'none';
+                rightBtn.style.display = 'none';
+            }
+
+            // 4. Adiciona lógica de confirmação e redirecionamento
+            document.querySelector('.final-reserve-btn').addEventListener('click', () => {
+                alert(`Reserva no ${rawData.name} confirmada para ${rawData.discountText}! ✅`);
+                
+                localStorage.removeItem('selectedRestaurant');
+                window.location.href='dashboard.html';
+            });
+        });
+    </script>
+</body>
+</html>

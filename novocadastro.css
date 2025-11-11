@@ -1,0 +1,195 @@
+:root {
+    --vermelho-principal: #f12435; /* Um vermelho vibrante */
+    --vermelho-escuro: #810011;    /* Um vermelho mais escuro para hover */
+    --fundo-form: rgba(255, 255, 255, 0.95); /* Fundo do formulário com leve transparência */
+    --texto-links: #555;           /* Cor para links e texto geral */
+    --cor-texto-principal: #222;
+    --altura-header: 60px; /* Definimos a altura do cabeçalho */
+}
+
+html{
+    background-color: var(--cor-texto-principal);
+}
+
+.login-form h2 {
+    text-align: center;
+    color: var(--vermelho-principal);
+    margin-bottom: 30px; 
+    border-bottom: 2px solid var(--vermelho-principal);
+    padding-bottom: 10px;
+}
+
+.login-side {
+    display: flex;
+    justify-content: center; /* Alinha o login à direita */
+    align-items: center;
+    margin-top: 6%;
+}
+
+/* Container principal do formulário */
+.login-container {
+    background-color: var(--fundo-form);
+    padding: 40px; 
+    border-radius: 8px;
+    z-index: 91; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); 
+    width: 100%;
+    max-width: 500px; 
+    /* MUDANÇA: Adiciona margem direita para mover o login levemente para a esquerda */
+    
+}
+
+.input-group {
+    margin-bottom: 20px; 
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1em; 
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 12px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--vermelho-principal);
+    outline: none;
+    box-shadow: 0 0 5px rgba(217, 48, 37, 0.5);
+}
+
+.btn-login {
+    width: 100%;
+    background-color: var(--vermelho-principal);
+    color: white;
+    padding: 14px 20px; 
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px; 
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-login:hover {
+    background-color: var(--vermelho-escuro);
+    transform: translateY(-2px);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.links {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 15px;
+}
+
+.links a {
+    color: var(--texto-links);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: var(--vermelho-principal);
+    text-decoration: underline;
+}
+
+textarea{
+    width: 400px; 
+  height: 90px; 
+  resize: none;
+  
+}
+
+#pergveg{
+    float: left;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.logo-text {
+    height: 50px;
+}
+
+#linknav {
+    display: flex;
+    gap: 20px;
+}
+
+#linknav a {
+    text-decoration: none;
+    color: var(--cor-texto-principal);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+#linknav a:hover {
+    color: var(--vermelho-principal);
+    text-decoration: underline;
+}
+
+#linha {
+    height: 2px;
+    background-color: var(--vermelho-principal);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#cc {
+    background-color: var(--vermelho-principal);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#cc:hover {
+    background-color: var(--vermelho-escuro);
+    margin-right: 10%;
+}
+
+
+/*ramos  culinarios
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+*/
