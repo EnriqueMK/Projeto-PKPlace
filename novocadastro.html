@@ -14,7 +14,7 @@
             <a href="dashboard.html">Início</a>
             <a href="#">Reservas</a>
             <a href="#">Ajuda</a>
-            <a href="index.html">Sair</a>
+            <a href="">Sair</a>
         </nav>
         <div id="linha"></div>
         <button id="cc" onclick="window.location.href='novocadastro.html'">Novo Parceiro</button>
@@ -22,8 +22,9 @@
 
     <div class="login-side">
             <div class="login-container">
-                <form class="login-form">
+                <form class="login-form" onsubmit="cadastroParceiro(event)">
                     <h2>Novo Parceiro</h2>
+                    <p id="msg-error"></p>
                     
                     <div class="input-group">
                         <label for="nomerestaurante">Nome do Restaurante</label>
@@ -63,7 +64,9 @@
                         <input type="text" id="numero" name="numero" placeholder="Numero de contato" required><!--coloca no javascript que so pode colocar numero na area-->
                     </div>
                     
-                    <button type="button" class="btn-login" onclick="loginUsuario()">ENVIAR</button>
+                    
+                    <button type="button" class="btn-login">ENVIAR</button>
+                    
                 
                 </form>
             </div>

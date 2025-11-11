@@ -9,6 +9,8 @@ function redirecionarCadastro() {
     window.location.href = 'cadastro.html';
 }
 
+
+
 // Cadastra o usuário 
 function cadastrarUsuario(event) {
     // Impede o formulário enviar automaticamente
@@ -19,44 +21,59 @@ function cadastrarUsuario(event) {
     const pass = document.querySelector("#senha").value.trim();
     const confirmPass = document.querySelector("#confirmar-senha").value.trim();
 
-    if (pass === confirmPass) {
-        // Armazena os dados em um Objeto
-        const dados = {
-            usuario: user,
-            email: em,
-            senha: pass
-        };
+    function registrarDados(usu, email, password) {
+        if (pass === confirmPass) {
+            const dados = {
+                usuario: usu,
+                email: email,
+                senha: password
+            }
 
-        // Coloca os dados do Objeto no localStorage
-        localStorage.setItem("login", JSON.stringify(dados));
-        alert("Cadastro feito com sucesso!");
-        window.location.href = "index.html"
+            // Coloca os dados do Objeto no localStorage
+            localStorage.setItem(em, JSON.stringify(dados));
+            alert("Cadastro feito com sucesso!");
+            window.location.href = "index.html"
+        } else {
+            msgError.innerHTML = "As senhas não coincidem. Tente novamente!"
+        }
+    }
+
+    if (localStorage.getItem(em)) {
+        const loginSalvo = JSON.parse(localStorage.getItem(em));
+        if (em === loginSalvo.email) {
+            msgError.innerHTML = `Conta já cadastrada. <a href="index.html" style="text-decoration: underline; color: black;">Fazer login</a>`
+        } else {
+            registrarDados(user, em, pass);
+        }
     } else {
-        msgError.innerHTML = "As senhas não coincidem. Tente novamente!"
+        registrarDados(user, em, pass);
     }
 }
+
 
 function loginUsuario(event) {
     event.preventDefault();
 
-    const user = document.querySelector("#username").value.trim();
+    const em = document.querySelector("#username").value.trim();
     const pass = document.querySelector("#password").value.trim();
 
     // Pega os dados salvos no localStorage e joga em um Objeto
-    const loginSalvo = JSON.parse(localStorage.getItem("login"));
+    const loginSalvo = JSON.parse(localStorage.getItem(em));
 
-    if (localStorage.getItem("login")) {
-        if (user === loginSalvo.email && pass === loginSalvo.senha) {
+    if (localStorage.getItem(em)) {
+        if (em === loginSalvo.email && pass === loginSalvo.senha) {
             alert("Login realizado com sucesso! Redirecionando para a página inicial...")
             window.location.href = "dashboard.html";
         } else {
             msgError.style.color = "red";
             msgError.innerHTML = "ERRO! Email ou senha incorretos.";
         }
-    } else {
+    } else if (em === loginSalvo.email) {
         msgError.innerHTML = `Você não tem cadastro <a href="cadastro.html" style="color: red;">Cadastre aqui!<a>`
     }
 }
+
+
 
 
 // Função para gerar descontos e horários dinâmicos (Atualizada para usar IDs)
