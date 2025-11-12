@@ -50,29 +50,31 @@ function cadastrarUsuario(event) {
     }
 }
 
-
 function loginUsuario(event) {
     event.preventDefault();
 
     const em = document.querySelector("#username").value.trim();
     const pass = document.querySelector("#password").value.trim();
 
-    // Pega os dados salvos no localStorage e joga em um Objeto
-    const loginSalvo = JSON.parse(localStorage.getItem(em));
-
     if (localStorage.getItem(em)) {
+        // Pega os dados salvos no localStorage e joga em um Objeto
+        const loginSalvo = JSON.parse(localStorage.getItem(em));
+
         if (em === loginSalvo.email && pass === loginSalvo.senha) {
-            alert("Login realizado com sucesso! Redirecionando para a página inicial...")
+            // Marca o usuário logado
+            localStorage.setItem("logado", "true");
+            localStorage.setItem("loginAtual", em);
+            
+            alert("Login realizado com sucesso! Redirecionando...")
             window.location.href = "dashboard.html";
         } else {
             msgError.style.color = "red";
             msgError.innerHTML = "ERRO! Email ou senha incorretos.";
         }
-    } else if (em === loginSalvo.email) {
+    } else {
         msgError.innerHTML = `Você não tem cadastro <a href="cadastro.html" style="color: red;">Cadastre aqui!<a>`
     }
 }
-
 
 
 
