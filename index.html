@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login e Conteúdo</title>
-    <!-- Linka o arquivo CSS -->
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
@@ -12,23 +11,20 @@
         <img src="https://i.postimg.cc/L6BcKhjs/LOGOCIRCULO.png" class="logo-text">
         <nav id="linknav">
             <a href="#">Login</a>
-            <a href="#">Sobre</a>
-            <a href="#">Contato</a>
-            <a href="novocadastro.html">Sou Parceiro</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+            <a href="dashboard.html">Navegar</a>
         </nav>
         <div id="linha"></div>
-        <!-- Alterado para button com onclick para redirecionar -->
         <button id="cc" onclick="redirecionarCadastro()">Cadastrar</button>
     </header>
 
     <div class="hero-section">
         
-        <!-- Lado esquerdo: Texto -->
         <div class="text-side">
             <p>A mesa que mais precisa de você, paga menos.</p>
         </div>
         
-        <!-- Lado direito: Bloco de login -->
         <div class="login-side">
             <div class="login-container">
                 <form class="login-form" onsubmit="loginUsuario(event)">
@@ -48,9 +44,8 @@
 
                     <p id="msg-error" style="text-align: center;"></p>
                     
-                    <div class="links">
+                    <div class="links2">
                         <a href="#">Esqueci a Senha</a>
-                        <!-- Alterado href para redirecionar para cadastro.html -->
                         <a href="cadastro.html">Criar Conta</a>
                     </div>
                 </form>
@@ -59,24 +54,167 @@
         
     </div>
     
-    <!-- 2. SEÇÃO DE CONTEÚDO ADICIONAL -->
-    <div class="content-section">
+    <div  id="sobre" class="content-section">
         <div class="content-wrapper">
-            <h1>Sobre o PK Place</h1>
-            <p style="color: #f12435;">PK Place é uma ferramenta de reservas que transforma o movimento do restaurante em desconto para você! </p>
-            <p>Como funciona? É simples: ao reservar e movimentar o restaurante em horários de baixa demanda, você é recompensado com descontos incríveis de até 50% na sua conta de alimentos. É o seu paladar feliz com o seu bolso agradecido.</p>
-            <div class="info-card">
-                <h3>Cliente?</h3>
-                <p>Queremos garantir que você coma bem e pague menos por experiências inesquecíveis.</p>
+            <div class="boxed">
+                <h1>Sobre o PK Place</h1>
+                <p style="color: #f12435;">PK Place é uma ferramenta de reservas que transforma o movimento do restaurante em desconto para você! </p>
+                <p>Somos uma rede inovadora que conecta você aos melhores restaurantes parceiros, oferecendo uma experiência gastronômica 
+                de alta qualidade com um diferencial exclusivo: descontos proporcionais à demanda. </p>
+
+                <br>
+                <div class="boxed">
+                <p style="text-align: center;">RECEBA ATÉ<div style="font-size: 90px; font-family: Impact; letter-spacing: 2px; color:#f12435; text-align: center;">50% off</div></p>
+                </div>
+                <br>
+
+                <p>Em nosso site, você tem acesso a uma lista completa de todos os Restaurantes Parceiros PK Place. Cada restaurante possui uma página dedicada com 
+                seus principais pratos, fotos, localização exata e, mais importante, o status de desconto em tempo real. <br><br>
+                Como usuário, você pode acessar nossa página inicial e conferir os descontos disponíveis dentro de uma hora, ao clicar em reservar, você ativa
+                reserva junto ao desconto válido em um intervalo de 2 horas. Já no restaurante, é só apresentar seu nome e pronto! Você e todos da sua mesa recebem
+                o desconto previsto no site.</p>
+                <br>
+            <img src="https://img.freepik.com/fotos-gratis/um-garcom-feliz-servindo-comida-a-um-grupo-de-amigos-alegres-em-um-pub_637285-12525.jpg?semt=ais_hybrid&w=740&q=80" style="border-radius: 30px; object-fit: cover; object-position: 20% 60%;">
             </div>
             
-            <div class="info-card">
-                <h3>Parceiro?</h3>
-                <p>Priorizamos a movimentação do seu estabelecimento em qualquer horário, fazendo o dinheiro entrar até nas horas mais difíceis.</p>
+            <div class="info-cards-container">
+                <div class="info-card">
+                    <h3>Atualmente contamos com:</h3>
+                    <p style="text-align: center;"><span style="font-size: 90px; font-family: Impact; letter-spacing: 2px; color:#f12435; text-align: center;">9</span><span style="font-size: 48px; color: #f12435;"> UNIDADES PK PLACE.</span></p>
+                    <p style="text-align: center; line-height: 0.5; font-size: 20px;">espalhadas por São Paulo.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Quer se tonar parte da rede?</h3>
+                    <p>Entre em contato ou vá até a opção de novo parceiro. Preencha o formulário e é só aguardar uma resposta.</p>
+                </div>
+                 <div class="info-card">
+                    <p>Ta esperando o que? Faça login agora ou crie uma nova conta e venha aproveitar tudo o que a rede PK Place pode te proporcionar! Faça uma reserva ainda hoje e aproveite os descontos!</p>
+                </div>
             </div>
-        </div>
+            </div>
     </div>
+    <style>
+    /* -------------------------------------- */
+/* ESTILOS DO RODAPÉ (FOOTER) SIMPLIFICADO */
+/* -------------------------------------- */
 
+:root {
+    --vermelho-principal: #ff2133;
+    --vermelho-escuro: #ff3744;
+    --cor-fundo-footer: #222; /* Cor escura para contraste */
+    --cor-texto-footer: #f8f8f8; /* Branco ou cinza claro */
+}
+
+.main-footer {
+    background-color: var(--cor-fundo-footer);
+    color: var(--cor-texto-footer);
+    padding: 40px 20px;
+    margin-top: 50px;
+    border-top: 5px solid var(--vermelho-principal);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--vermelho-escuro);
+    padding-bottom: 5px;
+}
+
+/* Agrupamento de estilos de texto e lista */
+.footer-section p, .footer-section ul {
+    font-size: 0.9em;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    list-style: none; /* Aplicado a ul */
+}
+
+.footer-section a {
+    color: var(--cor-texto-footer);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--vermelho-principal);
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+/* Responsividade - Simplificado, apenas o essencial */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-section {
+        min-width: 100%;
+    }
+    
+    .footer-section h4 {
+        /* Centraliza o título, mantendo a linha de baixo (border-bottom) */
+        text-align: center;
+        display: inline-block; 
+    }
+}
+
+</style>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        
+        <div class="footer-section about">
+            <h4>Sobre o PK Place</h4>
+            <p>Somos uma rede de restaurantes baseadas na dinâmica do mutualismo: Você movimenta os estabeleciomentos em horários de baixa demanda, e nós te concedemos um desconto generoso.</p>
+        </div>
+        
+        <div class="footer-section links">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="dashboard.html">Início</a></li>
+                <li><a href="reservafeita.html">Minhas Reservas</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section contact">
+            <h4 id="contato">Contato</h4>
+            <address>
+                <p>Email: contato_pkplace@gmail.com</p>
+                <p>Telefone: (00) 1234-5678</p>
+                <p>Endereço da Sede: Rua da Inovação, 100 - Centro</p>
+            </address>
+        </div>
+        
+    </div>
+    
+    <div class="footer-bottom">
+        &copy; 2025 PK Place. Todos os direitos reservados.
+    </div>
+</footer>
     <script src="script.js"></script>
     
 </body>

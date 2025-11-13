@@ -1,124 +1,31 @@
+/* Variáveis CSS reutilizadas de dashboard.css */
 :root {
-    --vermelho-principal: #f12435; /* Um vermelho vibrante */
-    --vermelho-escuro: #810011;    /* Um vermelho mais escuro para hover */
-    --fundo-form: rgba(255, 255, 255, 0.95); /* Fundo do formulário com leve transparência */
-    --texto-links: #555;           /* Cor para links e texto geral */
-    --cor-texto-principal: #222;
-    --altura-header: 60px; /* Definimos a altura do cabeçalho */
+    --vermelho-principal: #f12435;
+    --vermelho-escuro: #c11e2a;
+    --cor-texto-principal: #333;
+    --cor-fundo: #f8f8f8;
+    --cor-borda: #ddd;
+    --cor-fundo-overlay: rgba(0, 0, 0, 0.7); /* Fundo escuro para a caixa central */
 }
 
-html{
-    background-color: var(--cor-texto-principal);
-}
-
-.login-form h2 {
-    text-align: center;
-    color: var(--vermelho-principal);
-    margin-bottom: 30px; 
-    border-bottom: 2px solid var(--vermelho-principal);
-    padding-bottom: 10px;
-}
-
-.login-side {
-    display: flex;
-    justify-content: center; /* Alinha o login à direita */
-    align-items: center;
-    margin-top: 6%;
-}
-
-/* Container principal do formulário */
-.login-container {
-    background-color: var(--fundo-form);
-    padding: 40px; 
-    border-radius: 8px;
-    z-index: 91; 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); 
-    width: 100%;
-    max-width: 500px; 
-    /* MUDANÇA: Adiciona margem direita para mover o login levemente para a esquerda */
-    
-}
-
-.input-group {
-    margin-bottom: 20px; 
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-    font-weight: bold;
-    font-size: 1.1em; 
-}
-
-.input-group input[type="text"],
-.input-group input[type="password"] {
-    width: 100%;
-    padding: 12px; 
-    border: 1px solid #ccc;
-    border-radius: 4px;
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    transition: border-color 0.3s;
 }
 
-.input-group input:focus {
-    border-color: var(--vermelho-principal);
-    outline: none;
-    box-shadow: 0 0 5px rgba(217, 48, 37, 0.5);
+/* Corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
+    line-height: 1.6;
+    padding-top: 70px; /* Adiciona padding para o header fixo */
+    min-height: 100vh; /* Garante que o body ocupa a altura total */
 }
 
-.btn-login {
-    width: 100%;
-    background-color: var(--vermelho-principal);
-    color: white;
-    padding: 14px 20px; 
-    margin-top: 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 18px; 
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-login:hover {
-    background-color: var(--vermelho-escuro);
-    transform: translateY(-2px);
-}
-
-.btn-login:active {
-    transform: translateY(0);
-}
-
-.links {
-    text-align: center;
-    margin-top: 25px;
-    font-size: 15px;
-}
-
-.links a {
-    color: var(--texto-links);
-    text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s;
-}
-
-.links a:hover {
-    color: var(--vermelho-principal);
-    text-decoration: underline;
-}
-
-textarea{
-    width: 400px; 
-  height: 90px; 
-  resize: none;
-  
-}
-
-#pergveg{
-    float: left;
-}
-
+/* === ESTILOS DO HEADER (Copiados de dashboard.css) === */
 .fixed-header {
     position: fixed;
     top: 0;
@@ -127,6 +34,7 @@ textarea{
     background-color: white;
     padding: 10px 20px;
     display: flex;
+    /* CORREÇÃO: Retornando para space-between para distribuir o espaço e alinhar como no dashboard. */
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -140,29 +48,33 @@ textarea{
 #linknav {
     display: flex;
     gap: 20px;
+    padding-left: 19.5%;
+    /* CORREÇÃO: Removendo o 'margin-left: auto' para que o 'space-between' do header funcione. */
+    align-items: center; 
 }
 
 #linknav a {
     text-decoration: none;
     color: var(--cor-texto-principal);
-    font-weight: bold;
-    transition: color 0.3s;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-weight: bold; 
+    text-align: center;
 }
 
 #linknav a:hover {
-    color: var(--vermelho-principal);
-    text-decoration: underline;
+    background-color: var(--cor-fundo);
 }
 
 #linha {
-    height: 2px;
-    background-color: var(--vermelho-principal);
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    width: 1px;
+    height: 30px;
+    background-color: var(--cor-borda);
+    margin: 0 10px;
 }
 
+/* Botão no Header - Agora será o CANCELAR (estilo do Novo Parceiro) */
 #cc {
     background-color: var(--vermelho-principal);
     color: white;
@@ -176,20 +88,133 @@ textarea{
 
 #cc:hover {
     background-color: var(--vermelho-escuro);
-    margin-right: 10%;
 }
 
+/* === ESTILOS DE LAYOUT ESPECÍFICOS PARA O FORMULÁRIO === */
 
-/*ramos  culinarios
--
--
--
--
--
--
--
--
--
--
--
-*/
+/* Container de Fundo Escuro (Overlay) - Centraliza a caixa do formulário */
+.form-overlay {
+    position: absolute;
+    top: 70px; /* Abaixo do header */
+    left: 0;
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    background-color: var(--cor-fundo-overlay); /* Fundo escuro */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 20px;
+    z-index: 10;
+}
+
+/* Caixa centralizada do formulário */
+.form-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    width: 100%;
+    margin: 20px 0; /* Adiciona margem superior/inferior para melhor visualização em telas menores */
+}
+
+/* Estilos de elementos do formulário */
+.login-form h2 {
+    color: var(--vermelho-principal);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--cor-texto-principal);
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* Estilo para os radios buttons de reunião */
+.input-group label[for="reuniao"] {
+    display: inline;
+    margin-right: 15px;
+    font-weight: normal;
+}
+.input-group label[for="reuniao"] input {
+    margin-left: 5px;
+}
+
+.btn-login {
+    width: 100%;
+    background-color: var(--vermelho-principal);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.btn-login:hover {
+    background-color: var(--vermelho-escuro);
+}
+
+#msg-error {
+    color: var(--vermelho-principal);
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 20px;
+    }
+
+    /* O header empilha em telas menores */
+    .fixed-header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        height: auto;
+    }
+
+    .fixed-header img {
+        height: 40px;
+    }
+
+    #linknav {
+        gap: 10px;
+        /* Removido margin-left: 0, pois agora não é mais necessário com space-between */
+    }
+
+    #linha {
+        display: none;
+    }
+
+    body {
+        padding-top: 120px; /* Ajusta padding para o header empilhado */
+    }
+
+    .form-overlay {
+        top: 120px;
+        min-height: calc(100vh - 120px);
+    }
+}

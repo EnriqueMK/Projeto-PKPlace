@@ -38,185 +38,219 @@
 
 .details-text h2 {
     color: var(--vermelho-principal);
-    font-size: 2em;
-    margin-bottom: 10px;
+    font-size: 2.2em;
+    margin-bottom: 5px;
 }
 
 .details-text p {
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-#details-discount {
-    font-size: 1.4em;
-    color: var(--vermelho-escuro);
-    margin: 20px 0;
-}
-
-/* Estilos para botões */
-.btn-back {
-    background-color: #555;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    margin-left: 10px;
-}
-
-.btn-back:hover {
-    background-color: #333;
-}
-
-.final-reserve-btn {
-    padding: 12px 30px;
-    font-size: 1.1em;
-    /* Usa a cor principal do dashboard */
-    background-color: var(--vermelho-principal); 
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.final-reserve-btn:hover {
-    background-color: var(--vermelho-escuro);
-}
-
-/* -------------------------------------- */
-/* ESTILOS DE PRATOS POPULARES (CARROSSEL COM SETAS) */
-/* -------------------------------------- */
-
-.dish-menu-section {
-    margin-top: 50px;
-    padding-bottom: 20px; 
-}
-
-.dish-menu-section h2 {
     color: var(--cor-texto-principal);
-    border-bottom: 2px solid var(--vermelho-principal);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    text-align: center;
+    margin-bottom: 15px;
 }
 
-/* Contêiner que posiciona as setas em relação ao carrossel */
+.discount-display {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--vermelho-escuro);
+    margin-bottom: 25px !important;
+    display: block; /* Garante que o desconto fique em uma nova linha */
+}
+
+/* Estilos de Pratos Populares (Carrossel) - Mantidos do arquivo original */
+.section-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: var(--cor-texto-principal);
+    font-size: 1.8em;
+}
+
 .carousel-container {
     position: relative;
-    max-width: 1000px; 
-    margin: 0 auto;
-    z-index: 1;
+    overflow: hidden;
+    padding: 20px 0; /* Padding vertical para os botões não sumirem */
 }
 
-/* Contêiner de rolagem horizontal */
 .dishes-grid {
     display: flex;
-    overflow-x: auto; /* ESSENCIAL: Ativa a rolagem horizontal */
-    overflow-y: hidden;
-    gap: 25px; 
-    padding: 10px 40px; /* Espaço para as setas ficarem sobrepostas, mas não em cima dos pratos */
-    scroll-snap-type: x mandatory; 
-
-    /* Esconde a barra de rolagem (melhora a estética) */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px 30px; /* Adiciona padding horizontal para visibilidade dos botões */
+    -webkit-overflow-scrolling: touch; /* Melhor rolagem em iOS */
 }
 
-.dishes-grid::-webkit-scrollbar {
-    display: none;
-}
-
-/* Estilo do cartão de cada prato */
 .dish-card {
-    flex-shrink: 0; /* IMPEDE que o cartão encolha, forçando a rolagem */
-    width: 250px; /* Largura maior para o bloco */
-    
+    flex: 0 0 auto;
+    width: 250px;
     text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
     scroll-snap-align: start;
-}
-
-.dish-card:hover {
-    transform: translateY(-5px);
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .dish-photo-placeholder {
     width: 100%;
-    height: 180px; /* Altura maior para a foto */
-    background-color: #eee;
+    height: 150px;
     object-fit: cover;
     border-radius: 4px;
     margin-bottom: 10px;
-    border: 1px dashed #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.9em;
-    color: #999;
-}
-
-.dish-photo-placeholder:before {
-    content: "Foto do Prato (Placeholder)";
 }
 
 .dish-name {
     font-weight: bold;
-    color: var(--vermelho-escuro);
-    font-size: 1.1em;
-    margin: 0;
+    color: var(--cor-texto-principal);
 }
 
-/* -------------------------------------- */
-/* ESTILOS DAS SETAS DE NAVEGAÇÃO */
-/* -------------------------------------- */
-
-.scroll-btn {
+.carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: var(--vermelho-principal);
+    background-color: rgba(241, 36, 53, 0.8); /* Vermelho principal com transparência */
     color: white;
     border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.5em;
-    font-weight: bold;
+    padding: 10px 15px;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s, transform 0.1s;
-    line-height: 1;
+    border-radius: 50%;
+    font-size: 1.5em;
+    z-index: 5;
+    transition: background-color 0.3s;
 }
 
-.scroll-btn:hover {
+.carousel-btn:hover {
     background-color: var(--vermelho-escuro);
-}
-
-.scroll-btn:active {
-    transform: translateY(-50%) scale(0.95);
 }
 
 .left-btn {
     left: 0;
-    margin-left: -20px; 
+    margin-left: 0px; 
 }
 
 .right-btn {
     right: 0;
-    margin-right: -20px; 
+    margin-right: 0px; 
 }
 
 
 /* -------------------------------------- */
-/* RESPONSIVIDADE (PARA TELAS MENORES) */
+/* NOVOS ESTILOS PARA RESERVA FEITA (reservafeita.html) E COMPONENTES */
+/* -------------------------------------- */
+
+/* Estilo para a mensagem customizada (substitui alert) */
+.custom-message {
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Grupo de seleção de horário em reserva.html - REMOVIDO */
+/* .time-selector-group {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.time-selector-group label {
+    font-weight: bold;
+    color: var(--cor-texto-principal);
+}
+
+.time-selector-group select {
+    padding: 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    width: 150px; 
+    font-size: 1em;
+} */
+
+/* Cartão de Reserva Confirmada (reservafeita.html) */
+.reservation-card-details {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.status-success {
+    color: #1e8449; /* Verde de sucesso */
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #e6ffed;
+    padding-bottom: 15px;
+}
+
+.restaurant-name-title {
+    color: var(--vermelho-principal);
+    font-size: 2em;
+    margin-bottom: 25px !important;
+}
+
+.reservation-detail-item {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.reservation-detail-item strong {
+    color: var(--vermelho-escuro);
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 5px;
+    font-size: 1.2em;
+}
+
+.detail-value {
+    font-weight: normal;
+    color: var(--cor-texto-principal);
+}
+
+.time-value {
+    font-weight: bold;
+    color: #000;
+}
+
+.address-value {
+    font-style: italic;
+}
+
+/* Botão de Cancelar Reserva */
+.btn-cancel-reservation {
+    background-color: #ff4d4d; /* Vermelho mais forte para cancelamento */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 30px;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-cancel-reservation:hover {
+    background-color: #cc0000;
+    transform: translateY(-2px);
+}
+
+.address-text {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 25px !important;
+    font-weight: bold;
+}
+
+/* -------------------------------------- */
+/* RESPONSIVIDADE (PARA TELAS MENORES) - Mantido e ajustado */
 /* -------------------------------------- */
 
 @media (max-width: 900px) {
@@ -236,44 +270,26 @@
     }
     
     .dishes-grid {
-        padding: 10px 10px; /* Reduz o padding para maximizar o espaço */
+        padding: 10px 10px;
     }
     
-    /* Move os botões para mais perto do conteúdo em telas pequenas */
-    .left-btn {
-        left: 0;
-        margin-left: 0px; 
+    .left-btn, .right-btn {
+        margin: 0;
+    }
+    
+    /* Remoção do alinhamento do seletor que não existe mais */
+    /* .time-selector-group {
+        align-items: center;
+    } */
+
+    .time-selector-group select {
+        width: 100%;
+        max-width: 200px;
     }
 
-    .right-btn {
-        right: 0;
-        margin-right: 0px; 
+    .reservation-detail-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 }
-/* ... (Mantenha todos os estilos anteriores do reserva.css) ... */
-
-/* NOVO: Estilo para o endereço */
-.address-text {
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 25px !important;
-    font-weight: bold;
-}
-
-/* NOVO: Estilo para o preço do prato */
-.dish-price {
-    font-weight: bold;
-    color: #4CAF50; /* Cor verde para destaque de preço */
-    font-size: 1.2em;
-    margin-top: 5px;
-}
-
-/* Ajusta o estilo do nome do prato para não conflitar */
-.dish-name {
-    font-weight: bold;
-    color: var(--vermelho-escuro);
-    font-size: 1.1em; 
-    margin: 5px 0 0 0; /* Espaço para o preço abaixo */
-}
-
-/* ... (Mantenha o restante dos estilos, incluindo o .dish-card e .scroll-btn) ... */

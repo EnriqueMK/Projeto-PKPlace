@@ -11,7 +11,7 @@
         <img src="https://i.postimg.cc/L6BcKhjs/LOGOCIRCULO.png" class="logo-text">
         <nav id="linknav">
             <a href="dashboard.html">Início</a>
-            <a href="#">Reservas</a>
+            <a href="reservafeita.html">Reservas</a>
             <a href="#">Ajuda</a>
             <a href="index.html">Sair</a>
         </nav>
@@ -23,7 +23,7 @@
         <div class="welcome-container">
             
             <div class="welcome-image-area">
-                <img src="https://wackos.com.br/wp-content/uploads/2021/06/burger-combo-slide-final-5.png"> 
+                <img src="https://cdn.pixabay.com/photo/2023/07/25/08/03/food-8148498_1280.png"> 
             </div>
             <div class="welcome-text-side">
                 <h1>Bem-vindo(a) ao PK Place!</h1>
@@ -180,6 +180,129 @@
         </div>
     </div>
 
+    <style>
+    /* -------------------------------------- */
+/* ESTILOS DO RODAPÉ (FOOTER) SIMPLIFICADO */
+/* -------------------------------------- */
+
+:root {
+    --vermelho-principal: #ff2133;
+    --vermelho-escuro: #ff3744;
+    --cor-fundo-footer: #222; /* Cor escura para contraste */
+    --cor-texto-footer: #f8f8f8; /* Branco ou cinza claro */
+}
+
+.main-footer {
+    background-color: var(--cor-fundo-footer);
+    color: var(--cor-texto-footer);
+    padding: 40px 20px;
+    margin-top: 50px;
+    border-top: 5px solid var(--vermelho-principal);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--vermelho-escuro);
+    padding-bottom: 5px;
+}
+
+/* Agrupamento de estilos de texto e lista */
+.footer-section p, .footer-section ul {
+    font-size: 0.9em;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    list-style: none; /* Aplicado a ul */
+}
+
+.footer-section a {
+    color: var(--cor-texto-footer);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--vermelho-principal);
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+/* Responsividade - Simplificado, apenas o essencial */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-section {
+        min-width: 100%;
+    }
+    
+    .footer-section h4 {
+        /* Centraliza o título, mantendo a linha de baixo (border-bottom) */
+        text-align: center;
+        display: inline-block; 
+    }
+}
+
+</style>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        
+        <div class="footer-section about">
+            <h4>Sobre o PK Place</h4>
+            <p>Somos uma rede de restaurantes baseadas na dinâmica do mutualismo: Você movimenta os estabeleciomentos em horários de baixa demanda, e nós te concedemos um desconto generoso.</p>
+        </div>
+        
+        <div class="footer-section links">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="dashboard.html">Início</a></li>
+                <li><a href="reservafeita.html">Minhas Reservas</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section contact">
+            <h4>Contato</h4>
+            <address>
+                <p>Email: contato_pkplace@gmail.com</p>
+                <p>Telefone: (00) 1234-5678</p>
+                <p>Endereço da Sede: Rua da Inovação, 100 - Centro</p>
+            </address>
+        </div>
+        
+    </div>
+    
+    <div class="footer-bottom">
+        &copy; 2025 PK Place. Todos os direitos reservados.
+    </div>
+</footer>
+
     <script src="script.js"></script>
+
 </body>
 </html>

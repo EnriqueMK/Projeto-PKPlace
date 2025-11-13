@@ -121,7 +121,7 @@ body {
     width: 100%;
     
     /* Imagem de fundo e Parallax */
-    background-image: url('https://aem-all.accor.com/content/dam/all/hubs/americas/latam/generic-images/all-magazine/comida-favorita-pratos-queridinhos-no-brasil-e-no-mundo-2024-1.jpg'); 
+    background-image: url('https://offloadmedia.feverup.com/secretldn.com/wp-content/uploads/2023/03/25123412/Carlotta-Basement-Credit-Jerome-Galland.jpg'); 
     background-size: cover;          
     background-position: center;     
     background-repeat: no-repeat;    
@@ -187,17 +187,67 @@ body {
 .content-section {
     background-color: #ffffff; 
     width: 100%;
-    /* MODIFICAÇÃO: Reduzido de 150vh para 100vh para encurtar a seção de conteúdo */
-    min-height: 100vh; 
-    padding: 40px 0;
+    min-height: 80vh; 
+    padding: 40px 20px;
     z-index: 5; 
 }
 
 .content-wrapper {
-    max-width: 900px;
+    max-width: 90%;
+    
+    /* Centraliza o wrapper dentro da seção */
     margin: 0 auto; 
-    padding: 20px;
+    padding: 20px 0;
     color: var(--cor-texto-principal);
+    
+    /* CORRIGIDO: Habilita Flexbox para layout lado a lado */
+    display: flex;
+    gap: 30px; /* Espaço entre as duas colunas */
+    align-items: flex-start;
+}
+/* Coluna Esquerda: O conteúdo .boxed (50%) */
+.boxed {
+    /* CORRIGIDO: Ocupa 50% da largura */
+    flex: 1; 
+    min-width: 0;
+    margin: 0; /* Remove o margin: 0 auto; anterior */
+    max-width: none; /* Remove a limitação de 1000px */
+    
+    background-color: #fcfcfc; 
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 40px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Coluna Direita: Container dos Cartões (50%) */
+.info-cards-container {
+    /* CORRIGIDO: Ocupa 50% da largura */
+    flex: 1; 
+    
+    display: flex;
+    flex-direction: column; /* Empilha os cartões verticalmente */
+    gap: 30px; 
+    /* MUDANÇA AQUI: Reduza ou remova o padding-top */
+    padding-top: 0; /* Altere de 100px para 0 para alinhar com o topo da caixa esquerda */
+    /* Se quiser um pequeno espaçamento, use um valor menor, como 30px */
+    
+    /* Garante que os cartões preencham toda a largura de sua coluna */
+    align-items: stretch; 
+}
+
+.content-wrapper img {
+    /* Garante que a imagem nunca será mais larga que seu container */
+    max-width: 100%; 
+    height: auto;
+    border-radius: 12px; 
+    width: 100%; 
+    height: 300px;
+}
+
+.content-wrapper p {
+    text-align: justify; 
+    line-height: 1.4; 
 }
 
 .content-wrapper h1 {
@@ -208,12 +258,20 @@ body {
     padding-bottom: 15px;
 }
 
+/* Estilo do Card Individual */
 .info-card {
+    /* CORRIGIDO: Força o cartão a preencher 100% da largura da coluna da direita */
+    width: 100%; 
+    
     background-color: #f8f8f8;
     border-left: 5px solid var(--vermelho-principal);
     padding: 15px;
-    margin-top: 20px;
+    margin-top: 0; /* Usamos o gap do container, não a margem */
     border-radius: 4px;
+    
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.2), 
+        0 0 0 1px #ccc;
 }
 
 .info-card h3 {
@@ -284,20 +342,20 @@ body {
     transform: translateY(0);
 }
 
-.links {
+.links2 {
     text-align: center;
     margin-top: 25px;
     font-size: 15px;
 }
 
-.links a {
+.links2 a {
     color: var(--texto-links);
     text-decoration: none;
     margin: 0 10px;
     transition: color 0.3s;
 }
 
-.links a:hover {
+.links2 a:hover {
     color: var(--vermelho-principal);
     text-decoration: underline;
 }

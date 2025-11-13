@@ -12,7 +12,7 @@
         <img src="https://i.postimg.cc/L6BcKhjs/LOGOCIRCULO.png" class="logo-text">
         <nav id="linknav">
             <a href="dashboard.html">Início</a>
-            <a href="#">Reservas</a>
+            <a href="reservafeita.html">Reservas</a>
             <a href="#">Ajuda</a>
             <a href="index.html">Sair</a>
         </nav>
@@ -24,6 +24,8 @@
         <div class="content-wrapper">
             <h1 id="restaurant-name">Detalhes do Restaurante</h1>
             
+            <div id="status-message" class="custom-message" style="display: none;"></div>
+
             <div class="reserva-details-container">
                 
                 <img id="restaurant-image" src="" alt="Foto do Restaurante">
@@ -31,97 +33,63 @@
                 <div class="details-text">
                     <h2 id="details-name"></h2>
                     <p id="details-description"></p>
-                    <p id="details-address" class="address-text"></p> <p id="details-discount" class="discount"></p>
+                    <p id="details-address" class="address-text"></p> 
+                    <p id="details-discount" class="discount-display"></p>
                     
                     <button class="btn-reserve final-reserve-btn">Confirmar Reserva</button>
-                    <button class="btn-back" onclick="window.location.href='dashboard.html'">Voltar ao Dashboard</button>
                 </div>
+            </div>
+            
+            <h2 class="section-title">Pratos Populares</h2>
+            <div class="carousel-container">
+                <div class="dishes-grid" id="dishes-container">
+                    </div>
+                <button class="carousel-btn left-btn" onclick="scrollDishes('left')">&#10094;</button>
+                <button class="carousel-btn right-btn" onclick="scrollDishes('right')">&#10095;</button>
             </div>
 
-            <div class="dish-menu-section">
-                <h2>Pratos Populares</h2>
-                
-                <div class="carousel-container">
-                    <button class="scroll-btn left-btn" aria-label="Rolar para a esquerda">
-                        &lt; </button>
-                    
-                    <div id="popular-dishes-container" class="dishes-grid">
-                        </div>
-                    
-                    <button class="scroll-btn right-btn" aria-label="Rolar para a direita">
-                        &gt; </button>
-                </div>
-            </div>
-            </div>
+        </div>
     </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const dishesContainer = document.getElementById('popular-dishes-container');
-        const leftBtn = document.querySelector('.left-btn');
-        const rightBtn = document.querySelector('.right-btn');
-        
-        // **Define o tamanho da rolagem.** // 300px é um bom valor para rolar aproximadamente um cartão e meio,
-        // dando a sensação de continuidade.
-        const scrollAmount = 300; 
-
-        // Função de navegação que move o contêiner horizontalmente
-        function scrollCarousel(direction) {
-            if (direction === 'left') {
-                // Rola para a esquerda (valor negativo)
-                dishesContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-            } else if (direction === 'right') {
-                // Rola para a direita (valor positivo)
-                dishesContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            }
+        // Função para exibir mensagem customizada
+        function showMessage(text, isError = false) {
+            const msgElement = document.getElementById('status-message');
+            msgElement.textContent = text;
+            msgElement.style.backgroundColor = isError ? '#ffe0e6' : '#e6ffed';
+            msgElement.style.color = isError ? '#c11e2a' : '#1e8449';
+            msgElement.style.display = 'block';
+            setTimeout(() => {
+                msgElement.style.display = 'none';
+            }, 5000);
         }
-        
-        // Adiciona os Event Listeners
-        leftBtn.addEventListener('click', () => scrollCarousel('left'));
-        rightBtn.addEventListener('click', () => scrollCarousel('right'));
-    });
-    </script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const dishesContainer = document.getElementById('popular-dishes-container');
-            const leftBtn = document.querySelector('.left-btn');
-            const rightBtn = document.querySelector('.right-btn');
-            
-            const scrollAmount = 300; // Quantidade de pixels para rolar (ajuste conforme o tamanho do seu card)
 
-            // Função de navegação
-            function scrollCarousel(direction) {
-                if (direction === 'left') {
-                    dishesContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-                } else if (direction === 'right') {
-                    dishesContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                }
-            }
-            
-            // Event Listeners para as setas
-            leftBtn.addEventListener('click', () => scrollCarousel('left'));
-            rightBtn.addEventListener('click', () => scrollCarousel('right'));
-            
-            
-            // --- Lógica de Carregamento de Dados ---
-            
-            const restaurantDataJSON = localStorage.getItem('selectedRestaurant');
-            
-            if (!restaurantDataJSON) {
-                document.getElementById('restaurant-name').textContent = 'Erro: Nenhum restaurante selecionado.';
+        document.addEventListener('DOMContentLoaded', () => {
+            const rawDataString = localStorage.getItem('selectedRestaurant');
+            const statusMessage = document.getElementById('status-message');
+
+            if (!rawDataString) {
+                showMessage("Nenhum restaurante selecionado. Redirecionando...", true);
+                setTimeout(() => { window.location.href = 'dashboard.html'; }, 2000);
                 return;
             }
             
-            const rawData = JSON.parse(restaurantDataJSON);
-            const dishes = JSON.parse(rawData.dishes || '[]'); 
+            const rawData = JSON.parse(rawDataString);
+            const dishes = rawData.dishes ? JSON.parse(rawData.dishes) : [];
+            const dishesContainer = document.getElementById('dishes-container');
+            const leftBtn = document.querySelector('.left-btn');
+            const rightBtn = document.querySelector('.right-btn');
 
-            // 2. Atualiza os elementos da página com os dados do restaurante
-            document.getElementById('restaurant-name').textContent = rawData.name;
+            // 1. Atualiza o título da página
+            document.getElementById('restaurant-name').textContent = `Reserva em ${rawData.name}`;
+            document.title = `Reserva em ${rawData.name}`;
+            
+            // 2. Preenche os detalhes do restaurante
             document.getElementById('restaurant-image').src = rawData.img;
+            document.getElementById('restaurant-image').alt = `Foto de ${rawData.name}`;
             document.getElementById('details-name').textContent = rawData.name;
             document.getElementById('details-description').textContent = rawData.desc;
-            document.getElementById('details-address').textContent = `Endereço: ${rawData.address}`; // NOVO: Injeta o endereço
+            document.getElementById('details-address').textContent = rawData.address;
             document.getElementById('details-discount').textContent = rawData.discountText;
 
             // 3. Renderiza os pratos populares
@@ -143,14 +111,167 @@
                 rightBtn.style.display = 'none';
             }
 
-            // 4. Adiciona lógica de confirmação e redirecionamento
+            // 4. Adiciona lógica de finalização da reserva e redirecionamento
             document.querySelector('.final-reserve-btn').addEventListener('click', () => {
-                alert(`Reserva no ${rawData.name} confirmada para ${rawData.discountText}! ✅`);
                 
-                localStorage.removeItem('selectedRestaurant');
-                window.location.href='dashboard.html';
+                if (localStorage.getItem('activeReservation')) {
+                    showMessage("Você já possui uma reserva ativa. Cancele-a para fazer uma nova.", true);
+                    return;
+                }
+
+                // Cria a data/hora de confirmação
+                const confirmationTime = new Date().getTime(); 
+                
+                // Cria o objeto final da reserva, incluindo o horário de confirmação
+                const finalReservationData = {
+                    ...rawData,
+                    // Note que a "hora" agora é o timestamp da confirmação
+                    confirmationTimestamp: confirmationTime 
+                };
+
+                // Armazena a reserva ativa e única no localStorage
+                localStorage.setItem('activeReservation', JSON.stringify(finalReservationData));
+
+                // Limpa o item temporário de seleção
+                localStorage.removeItem('selectedRestaurant'); 
+
+                // Redireciona para a página de reserva feita
+                window.location.href = 'reservafeita.html';
             });
         });
+
+        // Função para rolagem do carrossel (mantida)
+        function scrollDishes(direction) {
+            const container = document.getElementById('dishes-container');
+            const scrollAmount = 300; // Distância de rolagem
+            
+            if (direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
     </script>
+        <style>
+    /* -------------------------------------- */
+/* ESTILOS DO RODAPÉ (FOOTER) SIMPLIFICADO */
+/* -------------------------------------- */
+
+:root {
+    --vermelho-principal: #ff2133;
+    --vermelho-escuro: #ff3744;
+    --cor-fundo-footer: #222; /* Cor escura para contraste */
+    --cor-texto-footer: #f8f8f8; /* Branco ou cinza claro */
+}
+
+.main-footer {
+    background-color: var(--cor-fundo-footer);
+    color: var(--cor-texto-footer);
+    padding: 40px 20px;
+    margin-top: 50px;
+    border-top: 5px solid var(--vermelho-principal);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--vermelho-escuro);
+    padding-bottom: 5px;
+}
+
+/* Agrupamento de estilos de texto e lista */
+.footer-section p, .footer-section ul {
+    font-size: 0.9em;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    list-style: none; /* Aplicado a ul */
+}
+
+.footer-section a {
+    color: var(--cor-texto-footer);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--vermelho-principal);
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+/* Responsividade - Simplificado, apenas o essencial */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-section {
+        min-width: 100%;
+    }
+    
+    .footer-section h4 {
+        /* Centraliza o título, mantendo a linha de baixo (border-bottom) */
+        text-align: center;
+        display: inline-block; 
+    }
+}
+
+</style>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        
+        <div class="footer-section about">
+            <h4>Sobre o PK Place</h4>
+            <p>Somos uma rede de restaurantes baseadas na dinâmica do mutualismo: Você movimenta os estabeleciomentos em horários de baixa demanda, e nós te concedemos um desconto generoso.</p>
+        </div>
+        
+        <div class="footer-section links">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="dashboard.html">Início</a></li>
+                <li><a href="reservafeita.html">Minhas Reservas</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section contact">
+            <h4>Contato</h4>
+            <address>
+                <p>Email: contato_pkplace@gmail.com</p>
+                <p>Telefone: (00) 1234-5678</p>
+                <p>Endereço da Sede: Rua da Inovação, 100 - Centro</p>
+            </address>
+        </div>
+        
+    </div>
+    
+    <div class="footer-bottom">
+        &copy; 2025 PK Place. Todos os direitos reservados.
+    </div>
+</footer>
 </body>
 </html>

@@ -13,8 +13,8 @@
         <nav id="linknav">
             <a href="index.html">Login</a>
             <a href="#">Sobre</a>
-            <a href="#">Contato</a>
-            <a href="#">Sou Parceiro</a>
+            <a href="#contato">Contato</a>
+            <a href="dashboard.html">Navegar</a>
         </nav>
         <div id="linha"></div>
         <button id="cc" onclick="redirecionarCadastro()">Cadastrar</button>
@@ -57,7 +57,7 @@
                     
                     <button type="submit" class="btn-login">CADASTRAR</button>
                     <p id="msg-error" style="color: red; text-align: center;"></p>
-                    <div class="links">
+                    <div class="links2">
                         <a href="index.html">Já tenho conta - Fazer Login</a>
                     </div>
                 </form>
@@ -78,8 +78,127 @@
             </div>
         </div>
     </div>
+    <style>
+    /* -------------------------------------- */
+/* ESTILOS DO RODAPÉ (FOOTER) SIMPLIFICADO */
+/* -------------------------------------- */
 
-    <script src="script.js"></script>
+:root {
+    --vermelho-principal: #ff2133;
+    --vermelho-escuro: #ff3744;
+    --cor-fundo-footer: #222; /* Cor escura para contraste */
+    --cor-texto-footer: #f8f8f8; /* Branco ou cinza claro */
+}
+
+.main-footer {
+    background-color: var(--cor-fundo-footer);
+    color: var(--cor-texto-footer);
+    padding: 40px 20px;
+    margin-top: 50px;
+    border-top: 5px solid var(--vermelho-principal);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--vermelho-escuro);
+    padding-bottom: 5px;
+}
+
+/* Agrupamento de estilos de texto e lista */
+.footer-section p, .footer-section ul {
+    font-size: 0.9em;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    list-style: none; /* Aplicado a ul */
+}
+
+.footer-section a {
+    color: var(--cor-texto-footer);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--vermelho-principal);
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+/* Responsividade - Simplificado, apenas o essencial */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
     
+    .footer-section {
+        min-width: 100%;
+    }
+    
+    .footer-section h4 {
+        /* Centraliza o título, mantendo a linha de baixo (border-bottom) */
+        text-align: center;
+        display: inline-block; 
+    }
+}
+
+</style>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        
+        <div class="footer-section about">
+            <h4>Sobre o PK Place</h4>
+            <p>Somos uma rede de restaurantes baseadas na dinâmica do mutualismo: Você movimenta os estabeleciomentos em horários de baixa demanda, e nós te concedemos um desconto generoso.</p>
+        </div>
+        
+        <div class="footer-section links">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="dashboard.html">Início</a></li>
+                <li><a href="reservafeita.html">Minhas Reservas</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section contact">
+            <h4 id="contato">Contato</h4>
+            <address>
+                <p>Email: contato_pkplace@gmail.com</p>
+                <p>Telefone: (00) 1234-5678</p>
+                <p>Endereço da Sede: Rua da Inovação, 100 - Centro</p>
+            </address>
+        </div>
+        
+    </div>
+    
+    <div class="footer-bottom">
+        &copy; 2025 PK Place. Todos os direitos reservados.
+    </div>
+</footer>
+    <script src="script.js"></script>   
 </body>
 </html>

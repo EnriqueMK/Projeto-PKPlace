@@ -4,7 +4,6 @@ var msgError = document.querySelector("#msg-error");
 // Map para armazenar o texto de desconto gerado dinamicamente
 const dynamicDiscountMap = new Map();
 
-// Função para redirecionar para cadastro (mantida igual)
 function redirecionarCadastro() {
     window.location.href = 'cadastro.html';
 }
@@ -92,9 +91,9 @@ function generateDynamicDiscounts() {
     
     let discountPool;
     if (dayOfWeek >= 1 && dayOfWeek <= 5) { 
-        discountPool = [30, 35, 40, 45, 50]; 
+        discountPool = ["Sem descontos","30%", "30%", "35%", "40%", "50%"]; 
     } else { 
-        discountPool = [20, 25, 30]; 
+        discountPool = ["Sem descontos", "Sem descontos", "10%", "15%", "20%"]; 
     }
     
     const dayNames = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado'];
@@ -109,7 +108,7 @@ function generateDynamicDiscounts() {
         const hourString = String(currentHour).padStart(2, '0');
         
         // Constrói o novo texto dinâmico
-        const newText = `Desconto: ${discount}% na reserva para ${currentDayName} às ${hourString}h`;
+        const newText = `Desconto: ${discount} na reserva para ${currentDayName} às ${hourString}h`;
         
         // Atualiza o texto na página
         element.textContent = newText;
