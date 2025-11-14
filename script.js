@@ -115,6 +115,10 @@ function redirecionarCadastro() {
     window.location.href = 'cadastro.html';
 }
 
+function redirecionarInicio() {
+    window.location.href = "index.html"
+}
+
 // Função para gerar descontos e horários dinâmicos (Atualizada para usar IDs)
 function generateDynamicDiscounts() {
     const now = new Date();
