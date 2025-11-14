@@ -48,34 +48,31 @@ body {
 #linknav {
     display: flex;
     gap: 20px;
-    padding-left: 19.5%;
-    /* CORREÇÃO: Removendo o 'margin-left: auto' para que o 'space-between' do header funcione. */
-    align-items: center; 
+    margin-left: 160px;
 }
 
 #linknav a {
     text-decoration: none;
     color: var(--cor-texto-principal);
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-    font-weight: bold; 
-    text-align: center;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
 #linknav a:hover {
-    background-color: var(--cor-fundo);
+    color: var(--vermelho-principal);
+    text-decoration: underline;
 }
 
 #linha {
-    width: 1px;
-    height: 30px;
-    background-color: var(--cor-borda);
-    margin: 0 10px;
+    height: 2px;
+    background-color: var(--vermelho-principal);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
-/* Botão no Header - Agora será o CANCELAR (estilo do Novo Parceiro) */
-#cc {
+#container-cc > button[type="button"] {
     background-color: var(--vermelho-principal);
     color: white;
     padding: 10px 20px;
@@ -84,10 +81,13 @@ body {
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s;
+    font-size: 1em;
+    margin-right: 20px;
 }
 
-#cc:hover {
-    background-color: var(--vermelho-escuro);
+#container-cc > button[type="button"]:nth-child(1) {
+    background-color: white;
+    color: var(--vermelho-principal);
 }
 
 /* === ESTILOS DE LAYOUT ESPECÍFICOS PARA O FORMULÁRIO === */

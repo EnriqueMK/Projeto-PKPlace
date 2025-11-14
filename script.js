@@ -4,7 +4,7 @@ window.onload = function () {
             logado: "false",
             email: null
         };
-        localStoragewwww.setItem("status", JSON.stringify(dadosUsuario));
+        localStorage.setItem("status", JSON.stringify(dadosUsuario));
     }
 }
 

@@ -10,13 +10,16 @@
     <header class="fixed-header">
         <img src="https://i.postimg.cc/L6BcKhjs/LOGOCIRCULO.png" class="logo-text">
         <nav id="linknav">
-            <a href="dashboard.html">Início</a>
+            <a href="index.html">Início</a>
             <a href="reservafeita.html">Reservas</a>
-            <a href="#">Ajuda</a>
+            <a href="novocadastro.html">Novo Parceiro</a>
             <a href="index.html">Sair</a>
         </nav>
         <div id="linha"></div>
-        <button id="cc" onclick="window.location.href='cadastro.html'">Novo Parceiro</button>
+        <div id="container-cc">
+            <button type="button" onclick="window.location.href='cadastro.html'">criar conta</button>
+            <button type="button" onclick="window.location.href='login.html'">Entrar</button>
+        </div>
     </header>
 
     <div class="content-section" style="padding-top: 100px;">
@@ -55,7 +58,7 @@
 
             <div id="no-reservation-message" style="display:none; text-align: center; padding: 40px; border: 1px dashed #ddd; border-radius: 8px;">
                 <h2 style="color: #666;">Você não possui nenhuma reserva ativa no momento.</h2>
-                <p style="margin-top: 15px;"><a href="dashboard.html" class="btn-reserve">Faça sua primeira reserva!</a></p>
+                <p style="margin-top: 15px;"><a href="index.html" class="btn-reserve">Faça sua primeira reserva!</a></p>
             </div>
         </div>
     </div>
@@ -105,7 +108,7 @@
                     pageTitle.textContent = "Reserva Cancelada";
                     reservationCard.style.display = 'none';
                     noReservationMessage.style.display = 'block';
-                    noReservationMessage.innerHTML = '<h2 style="color: #c11e2a;">Reserva Cancelada com Sucesso!</h2><p style="margin-top: 15px;">Você pode fazer uma nova reserva no <a href="dashboard.html" class="btn-reserve">Dashboard</a>.</p>';
+                    noReservationMessage.innerHTML = '<h2 style="color: #c11e2a;">Reserva Cancelada com Sucesso!</h2><p style="margin-top: 15px;">Você pode fazer uma nova reserva no <a href="index.html" class="btn-reserve">Dashboard</a>.</p>';
                 });
 
             } else {
@@ -217,7 +220,7 @@
         <div class="footer-section links">
             <h4>Navegação</h4>
             <ul>
-                <li><a href="dashboard.html">Início</a></li>
+                <li><a href="index.html">Início</a></li>
                 <li><a href="reservafeita.html">Minhas Reservas</a></li>
             </ul>
         </div>

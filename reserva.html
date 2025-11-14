@@ -11,13 +11,16 @@
     <header class="fixed-header">
         <img src="https://i.postimg.cc/L6BcKhjs/LOGOCIRCULO.png" class="logo-text">
         <nav id="linknav">
-            <a href="dashboard.html">Início</a>
+            <a href="index.html">Início</a>
             <a href="reservafeita.html">Reservas</a>
-            <a href="#">Ajuda</a>
+            <a href="novocadastro.html">Novo Parceiro</a>
             <a href="index.html">Sair</a>
         </nav>
         <div id="linha"></div>
-        <button id="cc" onclick="window.location.href='cadastro.html'">Novo Parceiro</button>
+        <div id="container-cc">
+            <button type="button" onclick="window.location.href='cadastro.html'">criar conta</button>
+            <button type="button" onclick="window.location.href='login.html'">Entrar</button>
+        </div>
     </header>
 
     <div class="content-section" style="padding-top: 100px;">
@@ -70,7 +73,7 @@
 
             if (!rawDataString) {
                 showMessage("Nenhum restaurante selecionado. Redirecionando...", true);
-                setTimeout(() => { window.location.href = 'dashboard.html'; }, 2000);
+                setTimeout(() => { window.location.href = 'index.html'; }, 2000);
                 return;
             }
             
@@ -253,7 +256,7 @@
         <div class="footer-section links">
             <h4>Navegação</h4>
             <ul>
-                <li><a href="dashboard.html">Início</a></li>
+                <li><a href="index.html">Início</a></li>
                 <li><a href="reservafeita.html">Minhas Reservas</a></li>
             </ul>
         </div>
