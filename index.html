@@ -13,7 +13,7 @@
             <a href="index.html">Início</a>
             <a href="reservafeita.html">Reservas</a>
             <a href="novocadastro.html">Novo Parceiro</a>
-            <a href="index.html">Sair</a>
+            <a href="" onclick="logout()" >Sair</a>
         </nav>
         <div id="linha"></div>
         <div id="container-cc">
@@ -273,6 +273,7 @@
 
 </style>
 
+
 <footer class="main-footer">
     <div class="footer-content">
         
@@ -306,25 +307,5 @@
 </footer>
 
     <script src="script.js"></script>
-    <script>
-        window.onload = function() {
-            if (!localStorage.getItem("status")) {
-                const dadosUsuario = {
-                    logado: "false",
-                    email: null
-                };
-                localStorage.setItem("status", JSON.stringify(dadosUsuario));
-            }
-
-            if (JSON.parse(localStorage.getItem("status")).logado === "true") {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{AS^"LFJKSA"}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
-        }
-
-
-
-    </script>
-    <style >
-
-    </style>
-
 </body>
 </html>

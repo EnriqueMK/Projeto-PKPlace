@@ -1,3 +1,23 @@
+window.onload = function() {
+    if (!localStorage.getItem("status")) {
+        const dadosUsuario = {
+            logado: "false",
+            email: null
+        };
+        localStorage.setItem("status", JSON.stringify(dadosUsuario));
+    } 
+
+    if (JSON.parse(localStorage.getItem("status")).logado === "true") {
+        const navLinkNav = document.querySelector("#linknav")
+        navLinkNav.style.margin = "0px"
+
+        const mensagemOla = document.querySelector("#container-cc");
+        mensagemOla.innerHTML = `Olá, ${JSON.parse(localStorage.getItem(JSON.parse(localStorage.getItem("status")).email)).usuario}!`;
+        mensagemOla.style.color = "#f12435";
+        mensagemOla.style.fontWeight = "bold";
+    }
+}
+
 // Mensagem de erro global
 var msgError = document.querySelector("#msg-error");
 
@@ -36,7 +56,9 @@ function cadastrarUsuario(event) {
             registrarDados(user, em, pass);
         }
     } else {
-        registrarDados(user, em, pass);
+        registrarDados(user, em, pass);while (condition) {
+            
+        }
     }
 }
 
@@ -61,7 +83,7 @@ function loginUsuario(event) {
             );
             
             alert("Login realizado com sucesso! Redirecionando...")
-            window.location.href = "index.html";
+            window.location.href = "index.html"
         } else {
             msgError.style.color = "red";
             msgError.innerHTML = "ERRO! Email ou senha incorretos.";
@@ -71,8 +93,20 @@ function loginUsuario(event) {
     }
 }
 
+function logout() {
+    const status = JSON.parse(localStorage.getItem("status"));
 
-
+    if (status.logado === "true") {
+        alert("Conta deslogada!")
+        const dadosUsuario = {
+            logado: "false",
+            email: null
+        };
+        localStorage.setItem("status", JSON.stringify(dadosUsuario));
+    } else if (status.logado === "false") {
+        alert("Você não está logado!")
+    }
+}
 
 // Map para armazenar o texto de desconto gerado dinamicamente
 const dynamicDiscountMap = new Map();
@@ -124,37 +158,45 @@ function generateDynamicDiscounts() {
 
 // NOVA FUNÇÃO: Captura dados do restaurante, armazena em localStorage e redireciona (ATUALIZADA)
 function reserveRestaurant(buttonElement) {
-    const card = buttonElement.closest('.restaurant-card');
-    if (!card) return;
 
-    // 1. Coleta dados estáticos do data-attributes
-    const restaurantId = card.getAttribute('data-id');
-    const name = card.getAttribute('data-name');
-    const desc = card.getAttribute('data-desc');
-    const img = card.getAttribute('data-img');
-    const address = card.getAttribute('data-address'); // NOVO: Coleta o endereço
-    const dishesJSON = card.getAttribute('data-dishes'); 
+    if (JSON.parse(localStorage.getItem("status")).logado === "true") {
+        const card = buttonElement.closest('.restaurant-card');
+        if (!card) return;
 
-    // 2. Coleta dados dinâmicos do Map
-    const discountElement = card.querySelector('.discount');
-    const discountText = dynamicDiscountMap.get(discountElement.id) || discountElement.textContent;
-    
-    // 3. Cria o objeto de dados (incluindo o endereço e os pratos)
-    const selectedRestaurantData = {
-        id: restaurantId,
-        name: name,
-        desc: desc,
-        img: img,
-        address: address, // NOVO: Adiciona o endereço
-        discountText: discountText,
-        dishes: dishesJSON 
-    };
+        // 1. Coleta dados estáticos do data-attributes
+        const restaurantId = card.getAttribute('data-id');
+        const name = card.getAttribute('data-name');
+        const desc = card.getAttribute('data-desc');
+        const img = card.getAttribute('data-img');
+        const address = card.getAttribute('data-address'); // NOVO: Coleta o endereço
+        const dishesJSON = card.getAttribute('data-dishes'); 
 
-    // 4. Armazena os dados no localStorage (converte o objeto para string JSON)
-    localStorage.setItem('selectedRestaurant', JSON.stringify(selectedRestaurantData));
+        // 2. Coleta dados dinâmicos do Map
+        const discountElement = card.querySelector('.discount');
+        const discountText = dynamicDiscountMap.get(discountElement.id) || discountElement.textContent;
+        
+        // 3. Cria o objeto de dados (incluindo o endereço e os pratos)
+        const selectedRestaurantData = {
+            id: restaurantId,
+            name: name,
+            desc: desc,
+            img: img,
+            address: address, // NOVO: Adiciona o endereço
+            discountText: discountText,
+            dishes: dishesJSON 
+        };
 
-    // 5. Redireciona para a página de reserva
-    window.location.href = 'reserva.html';
+        // 4. Armazena os dados no localStorage (converte o objeto para string JSON)
+        localStorage.setItem('selectedRestaurant', JSON.stringify(selectedRestaurantData));
+
+        // 5. Redireciona para a página de reserva
+        window.location.href = 'reserva.html';
+    } else {
+        const resp = confirm("Faça login para continuar com a reserva.")
+        if (resp) {
+            window.location.href = "login.html"
+        } 
+    }
 }
 
 // Executa a função de descontos ao carregar a página
