@@ -1,14 +1,15 @@
-// Mensagem de erro global
-var msgError = document.querySelector("#msg-error");
-
-// Map para armazenar o texto de desconto gerado dinamicamente
-const dynamicDiscountMap = new Map();
-
-function redirecionarCadastro() {
-    window.location.href = 'cadastro.html';
+window.onload = function () {
+    if (!localStorage.getItem("status")) {
+        const dadosUsuario = {
+            logado: "false",
+            email: null
+        };
+        localStoragewwww.setItem("status", JSON.stringify(dadosUsuario));
+    }
 }
 
-
+// Mensagem de erro global
+var msgError = document.querySelector("#msg-error");
 
 // Cadastra o usuário 
 function cadastrarUsuario(event) {
@@ -57,12 +58,17 @@ function loginUsuario(event) {
 
     if (localStorage.getItem(em)) {
         // Pega os dados salvos no localStorage e joga em um Objeto
-        const loginSalvo = JSON.parse(localStorage.getItem(em));
+        const dadosSalvo = JSON.parse(localStorage.getItem(em));
 
-        if (em === loginSalvo.email && pass === loginSalvo.senha) {
+        if (em === dadosSalvo.email && pass === dadosSalvo.senha) {
+
             // Marca o usuário logado
-            localStorage.setItem("logado", "true");
-            localStorage.setItem("loginAtual", em);
+            localStorage.setItem(
+                "status", JSON.stringify({
+                    logado: "true",
+                    email: em
+                })
+            );
             
             alert("Login realizado com sucesso! Redirecionando...")
             window.location.href = "dashboard.html";
@@ -76,6 +82,14 @@ function loginUsuario(event) {
 }
 
 
+
+
+// Map para armazenar o texto de desconto gerado dinamicamente
+const dynamicDiscountMap = new Map();
+
+function redirecionarCadastro() {
+    window.location.href = 'cadastro.html';
+}
 
 // Função para gerar descontos e horários dinâmicos (Atualizada para usar IDs)
 function generateDynamicDiscounts() {
