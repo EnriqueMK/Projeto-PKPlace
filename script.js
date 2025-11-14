@@ -1,13 +1,3 @@
-window.onload = function () {
-    if (!localStorage.getItem("status")) {
-        const dadosUsuario = {
-            logado: "false",
-            email: null
-        };
-        localStorage.setItem("status", JSON.stringify(dadosUsuario));
-    }
-}
-
 // Mensagem de erro global
 var msgError = document.querySelector("#msg-error");
 
@@ -32,7 +22,7 @@ function cadastrarUsuario(event) {
             // Coloca os dados do Objeto no localStorage
             localStorage.setItem(em, JSON.stringify(dados));
             alert("Cadastro feito com sucesso!");
-            window.location.href = "index.html"
+            window.location.href = "login.html"
         } else {
             msgError.innerHTML = "As senhas não coincidem. Tente novamente!"
         }
@@ -41,7 +31,7 @@ function cadastrarUsuario(event) {
     if (localStorage.getItem(em)) {
         const loginSalvo = JSON.parse(localStorage.getItem(em));
         if (em === loginSalvo.email) {
-            msgError.innerHTML = `Conta já cadastrada. <a href="index.html" style="text-decoration: underline; color: black;">Fazer login</a>`
+            msgError.innerHTML = `Conta já cadastrada. <a href="login.html" style="text-decoration: underline; color: black;">Fazer login</a>`
         } else {
             registrarDados(user, em, pass);
         }
@@ -71,7 +61,7 @@ function loginUsuario(event) {
             );
             
             alert("Login realizado com sucesso! Redirecionando...")
-            window.location.href = "dashboard.html";
+            window.location.href = "index.html";
         } else {
             msgError.style.color = "red";
             msgError.innerHTML = "ERRO! Email ou senha incorretos.";
