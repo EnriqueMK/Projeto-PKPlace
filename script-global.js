@@ -50,3 +50,11 @@ function logout() {
     }
 }
 
+function redLogin() {
+    window.location.href = 'login.html'
+}
+
+function redRegistrar() {
+    window.location.href = 'register.html'
+}
+
