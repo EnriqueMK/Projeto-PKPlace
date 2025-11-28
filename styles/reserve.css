@@ -1,0 +1,217 @@
+
+
+.reserva-details-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 30px;
+    padding: 30px;
+    background-color: #ffffff; /* Fundo branco para destacar */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.reserva-details-container img {
+    flex-shrink: 0;
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.details-text {
+    flex-grow: 1;
+}
+
+.details-text h2 {
+    color: var(--vermelho-principal);
+    font-size: 2.2em;
+    margin-bottom: 5px;
+}
+
+.details-text p {
+    color: var(--cor-texto-principal);
+    margin-bottom: 15px;
+}
+
+.discount-display {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--vermelho-escuro);
+    margin-bottom: 25px !important;
+    display: block; /* Garante que o desconto fique em uma nova linha */
+}
+
+/* Estilos de Pratos Populares (Carrossel) - Mantidos do arquivo original */
+.section-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: var(--cor-texto-principal);
+    font-size: 1.8em;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0; /* Padding vertical para os botões não sumirem */
+}
+
+.dishes-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px 30px; /* Adiciona padding horizontal para visibilidade dos botões */
+    -webkit-overflow-scrolling: touch; /* Melhor rolagem em iOS */
+}
+
+.dish-card {
+    flex: 0 0 auto;
+    width: 250px;
+    text-align: center;
+    scroll-snap-align: start;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.dish-photo-placeholder {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.dish-name {
+    font-weight: bold;
+    color: var(--cor-texto-principal);
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(241, 36, 53, 0.8); /* Vermelho principal com transparência */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5em;
+    z-index: 5;
+    transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+    background-color: var(--vermelho-escuro);
+}
+
+.left-btn {
+    left: 0;
+    margin-left: 0px; 
+}
+
+.right-btn {
+    right: 0;
+    margin-right: 0px; 
+}
+
+
+/* -------------------------------------- */
+/* NOVOS ESTILOS PARA RESERVA FEITA (reserved.html) E COMPONENTES */
+/* -------------------------------------- */
+
+/* Estilo para a mensagem customizada (substitui alert) */
+.custom-message {
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Cartão de Reserva Confirmada (reserved.html) */
+.reservation-card-details {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.status-success {
+    color: #1e8449; /* Verde de sucesso */
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #e6ffed;
+    padding-bottom: 15px;
+}
+
+.restaurant-name-title {
+    color: var(--vermelho-principal);
+    font-size: 2em;
+    margin-bottom: 25px !important;
+}
+
+.reservation-detail-item {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.reservation-detail-item strong {
+    color: var(--vermelho-escuro);
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 5px;
+    font-size: 1.2em;
+}
+
+.detail-value {
+    font-weight: normal;
+    color: var(--cor-texto-principal);
+}
+
+.time-value {
+    font-weight: bold;
+    color: #000;
+}
+
+.address-value {
+    font-style: italic;
+}
+
+/* Botão de Cancelar Reserva */
+.btn-cancel-reservation {
+    background-color: #ff4d4d; /* Vermelho mais forte para cancelamento */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 30px;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-cancel-reservation:hover {
+    background-color: #cc0000;
+    transform: translateY(-2px);
+}
+
+.address-text {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 25px !important;
+    font-weight: bold;
+}

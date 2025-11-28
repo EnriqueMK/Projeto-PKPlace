@@ -1,0 +1,363 @@
+/* -------------------------------------- */
+/* ESTILOS GERAIS E AJUSTE DO BODY */
+/* -------------------------------------- */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;     
+    box-sizing: border-box;
+    /* CORREÇÃO PRINCIPAL: Impede rolagem horizontal desnecessária */
+    overflow-x: hidden; 
+    
+    /* Adiciona padding no topo igual à altura do header para o conteúdo não ser coberto */
+    padding-top: var(--altura-header); 
+}
+
+
+#container-cc > button[type="button"] {
+    margin-right: 50px;
+}
+
+
+/* -------------------------------------- */
+/* SEÇÃO HERO */
+/* -------------------------------------- */
+
+.hero-section {
+    position: relative; 
+    /* Reduz a altura para compensar o header, mantendo a visualização completa da imagem */
+    height: calc(100vh - var(--altura-header)); 
+    width: 100%;
+    
+    /* Imagem de fundo e Parallax */
+    background-image: url(/images/login/Carlotta-Basement-Credit-Jerome-Galland.jpg); 
+    background-size: cover;          
+    background-position: center;     
+    background-repeat: no-repeat;    
+    background-attachment: fixed;
+    
+    /* Centralização do conteúdo interno (Texto e Login lado a lado) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; 
+}
+
+/* CAMADA PRETA DE OVERLAY */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: 1;
+}
+
+/* Lado esquerdo: Texto */
+.text-side {
+    flex: 1; /* Ocupa metade do espaço */
+    z-index: 90; /* Acima do overlay */
+    color: white;
+    font-size: 60px;
+    font-family: impact;
+    letter-spacing: 2px;
+    text-align: center; /* Centraliza o texto no lado esquerdo */
+    padding: 0 20px; /* Espaçamento interno */
+    padding-left: 50px;
+}
+
+/* Lado direito: Bloco de login */
+.login-side {
+    flex: 1; /* Ocupa metade do espaço */
+    display: flex;
+    justify-content: flex-end; /* Alinha o login à direita */
+    align-items: center;
+}
+
+/* Container principal do formulário */
+.login-container {
+    background-color: var(--fundo-form);
+    padding: 40px; 
+    border-radius: 8px;
+    z-index: 91; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); 
+    width: 100%;
+    max-width: 500px; 
+    /* MUDANÇA: Adiciona margem direita para mover o login levemente para a esquerda */
+    margin-right: 20%;
+}
+
+.login-container {
+    animation: floatLogin 6s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover interativo: aumenta levemente e intensifica sombra */
+.login-container:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Inputs com efeito de foco */
+.login-container input {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container input:focus {
+    border-color: var(--vermelho-principal);
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+    outline: none;
+}
+
+/* Botão de login com efeito hover */
+.login-container .btn-login {
+    transition: 0.3s ease, transform 0.2s ease;
+}
+
+.login-container .btn-login:hover {
+    background-color: #ff3b3b;
+    transform: scale(1.05);
+}
+
+.boxed, .info-card {
+    flex: 1;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    background-color: #fcfcfc;
+    transition: all 0.3s ease;
+}
+
+.boxed img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.boxed img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+}
+
+.info-cards-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.info-card {
+    background-color: #f8f8f8;
+    border-left: 5px solid var(--vermelho-principal);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.25);
+}
+
+.content-wrapper p {
+    text-align: justify;
+    line-height: 1.4;
+}
+
+.content-wrapper h1 {
+    color: var(--vermelho-escuro);
+    font-size: 2em;
+    margin-bottom: 30px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 15px;
+}
+
+/* -------------------------------------- */
+/* SEÇÃO DE CONTEÚDO ADICIONAL (ROLANDO) */
+/* -------------------------------------- */
+
+.content-section {
+    background-color: #ffffff; 
+    width: 100%;
+    min-height: 80vh; 
+    padding: 40px 20px;
+    z-index: 5; 
+}
+
+.content-wrapper {
+    max-width: 90%;
+    
+    /* Centraliza o wrapper dentro da seção */
+    margin: 0 auto; 
+    padding: 20px 0;
+    color: var(--cor-texto-principal);
+    
+    /* CORRIGIDO: Habilita Flexbox para layout lado a lado */
+    display: flex;
+    gap: 30px; /* Espaço entre as duas colunas */
+    align-items: flex-start;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+    color: var(--cor-texto-principal);
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+/* Coluna Esquerda: O conteúdo .boxed (50%) */
+.boxed {
+    /* CORRIGIDO: Ocupa 50% da largura */
+    flex: 1; 
+    min-width: 0;
+    margin: 0; /* Remove o margin: 0 auto; anterior */
+    max-width: none; /* Remove a limitação de 1000px */
+    
+    background-color: #fcfcfc; 
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 40px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Coluna Direita: Container dos Cartões (50%) */
+.info-cards-container {
+    /* CORRIGIDO: Ocupa 50% da largura */
+    flex: 1; 
+    
+    display: flex;
+    flex-direction: column; /* Empilha os cartões verticalmente */
+    gap: 30px; 
+    /* MUDANÇA AQUI: Reduza ou remova o padding-top */
+    padding-top: 0; /* Altere de 100px para 0 para alinhar com o topo da caixa esquerda */
+    /* Se quiser um pequeno espaçamento, use um valor menor, como 30px */
+    
+    /* Garante que os cartões preencham toda a largura de sua coluna */
+    align-items: stretch; 
+}
+
+.content-wrapper img {
+    /* Garante que a imagem nunca será mais larga que seu container */
+    max-width: 100%; 
+    height: auto;
+    border-radius: 12px; 
+    width: 100%; 
+    height: 300px;
+}
+
+.content-wrapper p {
+    text-align: justify; 
+    line-height: 1.4; 
+}
+
+.content-wrapper h1 {
+    color: var(--vermelho-escuro);
+    margin-bottom: 30px;
+    font-size: 2em;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 15px;
+}
+
+/* Estilo do Card Individual */
+.info-card {
+    /* CORRIGIDO: Força o cartão a preencher 100% da largura da coluna da direita */
+    width: 100%; 
+    
+    background-color: #f8f8f8;
+    border-left: 5px solid var(--vermelho-principal);
+    padding: 15px;
+    margin-top: 0; /* Usamos o gap do container, não a margem */
+    border-radius: 4px;
+    
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.2), 
+        0 0 0 1px #ccc;
+}
+
+.info-card h3 {
+    color: var(--vermelho-principal);
+    margin-top: 0;
+}
+
+
+/* -------------------------------------- */
+/* ESTILOS DO FORMULÁRIO (REUSO) */
+/* -------------------------------------- */
+
+.login-form h2 {
+    text-align: center;
+    color: var(--vermelho-principal);
+    margin-bottom: 30px; 
+    border-bottom: 2px solid var(--vermelho-principal);
+    padding-bottom: 10px;
+}
+
+.input-group {
+    margin-bottom: 20px; 
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1em; 
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 12px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--vermelho-principal);
+    outline: none;
+    box-shadow: 0 0 5px rgba(217, 48, 37, 0.5);
+}
+
+.btn-login {
+    width: 100%;
+    background-color: var(--vermelho-principal);
+    color: white;
+    padding: 14px 20px; 
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px; 
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-login:hover {
+    background-color: var(--vermelho-escuro);
+    transform: translateY(-2px);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.links2 {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 15px;
+}
+
+.links2 a {
+    color: var(--texto-links);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.links2 a:hover {
+    color: var(--vermelho-principal);
+    text-decoration: underline;
+}

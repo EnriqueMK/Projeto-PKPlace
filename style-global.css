@@ -1,0 +1,205 @@
+@charset "UTF-8";
+
+/* Váriaveis */
+:root {
+    --vermelho-principal: #f12435;
+    --vermelho-escuro: #c11e2a;
+    --cor-texto-principal: #333;
+    --cor-fundo: #f8f8f8;
+    --cor-borda: #ddd;
+    --cor-fundo-footer: #222; 
+    --cor-texto-footer: #f8f8f8; 
+    --fundo-form: rgba(255, 255, 255, 0.95); 
+    --texto-links: #555;           
+    --cor-texto-principal: #222;
+    --altura-header: 60px; 
+    --cor-fundo-overlay: rgba(0, 0, 0, 0.7);
+}
+
+/* Header fixo */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0px 10px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+/* Animacão da logo  */
+.logo-text {
+    height: 50px;
+    color: var(--vermelho-principal);
+    animation: complexFloat 4s ease-in-out infinite;
+    float: left;
+}
+
+.logo-text:hover {
+    animation-play-state: paused; 
+}
+
+@keyframes complexFloat {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(-3px, -5px) rotate(-2deg);
+    }
+    50% {
+        transform: translate(2px, -3px) rotate(3deg);
+    }
+    75% {
+        transform: translate(-2px, 4px) rotate(-1deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+/* Links de navegacão */
+#linknav {
+    display: flex;
+    gap: 30px;
+}
+
+#linknav a {
+    position: relative;
+    text-decoration: none;
+    color: rgb(63, 63, 63);
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 1.1em;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    cursor: pointer;
+}
+
+#linknav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: var(--vermelho-principal);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+#linknav a:hover {
+    color: var(--vermelho-principal);
+}
+
+#linknav a:hover::after {
+    transform: scaleX(1);
+}
+
+#linha {
+    height: 2px;
+    background-color: var(--vermelho-principal);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+/* Botão */
+#container-cc > button[type="button"] {
+    background-color: var(--vermelho-principal);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-left: 20px;
+}
+
+/* Efeito de hover: leve expansão e sombra */
+#container-cc > button[type="button"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Efeito “onda” de cor para o botão principal */
+#container-cc > button[type="button"]::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+    z-index: 0;
+}
+
+#container-cc > button[type="button"]:hover::after {
+    width: 200%;
+    height: 500%;
+}
+
+/* Rodapé */
+.main-footer {
+    background-color: var(--cor-fundo-footer);
+    color: var(--cor-texto-footer);
+    padding: 40px 20px;
+    border-top: 5px solid var(--vermelho-principal);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--vermelho-escuro);
+    padding-bottom: 5px;
+}
+
+.footer-section p, .footer-section ul {
+    font-size: 0.9em;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-section a {
+    color: var(--cor-texto-footer);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--vermelho-principal);
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8em;
+    color: #aaa;
+}

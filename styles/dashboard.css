@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    color: var(--cor-texto-principal);
+    line-height: 1.6;
+    padding-top: 70px;
+    background: linear-gradient(rgba(0, 0, 0, 0.534), rgba(0, 0, 0, 0.5)), url(/images/dashboard/restaurant/ban-Sushi-Bar.jpg);
+    background-attachment: fixed;
+}
+
+#container-cc > button[type="button"]:nth-child(1) {
+    background-color: white;
+    padding: 8px 18px;
+    color: var(--vermelho-principal);
+    border: 2px solid var(--vermelho-principal);
+}
+
+#container-cc > button[type="button"]:not(:nth-child(2))::after {
+    background: none;
+}
+
+
+
+.banner-tras{
+    height: 200px; /* Defina a altura que você quer que o banner ocupe */
+    position: relative; /* Ativa o z-index */
+    z-index: 1; /* Valor baixo, para ficar atrás */
+}
+
+/* Container principal */
+.welcome-container {
+    max-width: 1200px;
+    margin: -150px auto 40px auto;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 1px 3px 12px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+    transition: width 0.5s ease, padding 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Área da imagem */
+.welcome-image-area {
+    flex-shrink: 0;
+    width: 25%;
+    height: 25%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-image-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+
+    /* Animação de zoom */
+    transform: scale(0.95);
+    opacity: 0;
+    animation: zoomFade 1s ease forwards;
+    animation-delay: 0.3s;
+}
+
+/* Keyframes para zoom + fade-in da imagem */
+@keyframes zoomFade {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Área do texto */
+.welcome-text-side {
+    flex-grow: 1;
+    text-align: right;
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideFade 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes slideFade {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Títulos e parágrafos */
+.welcome-text-side h1 {
+    color: var(--vermelho-principal);
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.welcome-text-side p {
+    color: var(--cor-texto-principal);
+    margin-bottom: 5px;
+}
+
+/* Efeito hover opcional para interação */
+.welcome-container:hover .welcome-image-area img {
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+}
+
+
+/* Seção de Conteúdo (Geral) */
+.content-section {
+    padding: 15px 20px 60px 20px; /* Ajustado para remover padding superior desnecessário */
+    background-color: white;
+    border-top: 3px solid var(--vermelho-principal);
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos de cabeçalho e busca (MODIFICADOS) */
+
+.header-search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    margin-bottom: 40px; 
+    flex-wrap: wrap; 
+    gap: 20px;
+}
+
+.header-text {
+    flex-grow: 1;
+    min-width: 300px; /* Garante que o texto tenha espaço mínimo */
+}
+
+.header-text h1 {
+    text-align: left;
+    margin-bottom: 20px;
+    color: var(--vermelho-principal);
+}
+
+.header-text p {
+    text-align: left;
+    margin-bottom: 0;
+    color: #555;
+    font-size: 1em;
+}
+
+/* Estilos globais (ajustados para não forçar centralização) */
+.content-wrapper h1 {
+    /* Manter cor principal, mas remover alinhamento forçado */
+    color: var(--vermelho-principal);
+    margin-bottom: 0;
+}
+
+.content-wrapper p {
+    /* Remover alinhamento forçado */
+    margin-bottom: 0;
+}
+
+
+/* Estilos para os quadrados de restaurantes */
+.restaurants-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.restaurant-card {
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito de brilho que passa sobre o card */
+.restaurant-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+    transform: rotate(25deg) translateX(-100%);
+    transition: transform 0.7s ease;
+}
+
+.restaurant-card:hover::after {
+    transform: rotate(25deg) translateX(100%);
+}
+
+.restaurant-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.restaurant-card h3 {
+    color: var(--vermelho-principal);
+    margin-bottom: 10px;
+}
+
+.restaurant-card p {
+    color: var(--cor-texto-principal);
+    margin-bottom: 15px;
+}
+
+.discount {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--vermelho-escuro);
+}
+
+.btn-reserve {
+    background-color: var(--vermelho-principal);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-reserve:hover {
+    background-color: var(--vermelho-escuro);
+}

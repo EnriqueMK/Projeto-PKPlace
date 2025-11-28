@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" href="/images/favicon/LogoPKPlace.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style-global.css">
+    <link rel="stylesheet" href="/styles/login.css">
+</head>
+<body>
+
+    <!-- Menu -->
+    <header class="fixed-header">
+        <img src="/images/favicon/LogoPKPlace.png" class="logo-text">
+        <nav id="linknav">
+            <a href="/index.html">Navegar</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+        </nav>
+        <div id="linha"></div>
+        <div id="container-cc">
+            <button type="button" onclick="window.location.href='register.html'">Cadastrar</button>
+        </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <div class="hero-section">
+        <div class="text-side">
+            <p>A mesa que mais precisa de você, paga menos.</p>
+        </div>
+        <div class="login-side">
+            <div class="login-container">
+                <form class="login-form" onsubmit="loginUsuario(event)">
+                    <h2>Login</h2>
+                    <div class="input-group">
+                        <label for="username">Usuário</label>
+                        <input type="text" id="username" name="username" placeholder="Seu nome de usuário" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" placeholder="Sua senha" required>
+                    </div>
+                    <button type="submit" class="btn-login">ENTRAR</button>
+
+                    <p id="msg-error" style="text-align: center;"></p>
+                    <div class="links2">
+                        <a href="">Esqueci a Senha</a>
+                        <a href="/pages/register.html">Criar Conta</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section do site -->
+    <div id="sobre" class="content-section">
+        <div class="content-wrapper">
+            <div class="boxed">
+                <h1>Sobre o PK Place</h1>
+                <p style="color: #f12435;">PK Place é uma ferramenta de reservas que transforma o movimento do restaurante em desconto para você! </p>
+                <p>Somos uma rede inovadora que conecta você aos melhores restaurantes parceiros, oferecendo uma experiência gastronômica 
+                de alta qualidade com um diferencial exclusivo: descontos proporcionais à demanda. </p>
+
+                <br>
+                <div class="boxed">
+                <p style="text-align: center;">RECEBA ATÉ<div style="font-size: 90px; font-family: Impact; letter-spacing: 2px; color:#f12435; text-align: center;">50% off</div></p>
+                </div>
+                <br>
+                <p>Em nosso site, você tem acesso a uma lista completa de todos os Restaurantes Parceiros PK Place. Cada restaurante possui uma página dedicada com 
+                seus principais pratos, fotos, localização exata e, mais importante, o status de desconto em tempo real. <br><br>
+                Como usuário, você pode acessar nossa página inicial e conferir os descontos disponíveis dentro de uma hora, ao clicar em reservar, você ativa
+                reserva junto ao desconto válido em um intervalo de 2 horas. Já no restaurante, é só apresentar seu nome e pronto! Você e todos da sua mesa recebem
+                o desconto previsto no site.</p>
+                <br>
+            <img src="/images/login/um-garcom-feliz-servindo-comida-a-um-grupo-de-amigos-alegres-em-um-pub_637285-12525.avif" style="border-radius: 30px; object-fit: cover; object-position: 20% 60%;">
+            </div>
+            <div class="info-cards-container">
+                <div class="info-card">
+                    <h3>Atualmente contamos com:</h3>
+                    <p style="text-align: center;"><span style="font-size: 90px; font-family: Impact; letter-spacing: 2px; color:#f12435; text-align: center;">9</span><span style="font-size: 48px; color: #f12435;"> UNIDADES PK PLACE.</span></p>
+                    <p style="text-align: center; line-height: 0.5; font-size: 20px;">espalhadas por São Paulo.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Quer se tonar parte da rede?</h3>
+                    <p>Entre em contato ou vá até a opção de novo parceiro. Preencha o formulário e é só aguardar uma resposta.</p>
+                </div>
+                 <div class="info-card">
+                    <p>Ta esperando o que? Faça login agora ou crie uma nova conta e venha aproveitar tudo o que a rede PK Place pode te proporcionar! Faça uma reserva ainda hoje e aproveite os descontos!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <div id="footer-placeholder"></div>
+    <script src="/script-global.js" onload="herdarFooter('/footer.html')"></script>
+    <script src="/scripts/login.js"></script>
+    <div id="contato"></div>
+</body>
+</html>
