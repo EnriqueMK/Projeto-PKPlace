@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserva Confirmada</title>
-    <link rel="shortcut icon" href="/imagens/icone-site/LogoPKPlace.png" type="image/x-icon">
-    <link rel="stylesheet" href="/style-global.css">
-    <link rel="stylesheet" href="/estilos/dashboard-style.css">
-    <link rel="stylesheet" href="/estilos/reserve-style.css">
-    <link rel="stylesheet" href="/estilos/reserved-style.css">
+    <link rel="shortcut icon" href="LogoPKPlace.png" type="image/x-icon">
+    <link rel="stylesheet" href="style-global.css">
+    <link rel="stylesheet" href="dashboard-style.css">
+    <link rel="stylesheet" href="reserve-style.css">
+    <link rel="stylesheet" href="reserved-style.css">
     
 </head>
 <body>
     <header class="fixed-header">
-        <img src="/imagens/icone-site/LogoPKPlace.png" class="logo-text">
+        <img src="LogoPKPlace.png" class="logo-text">
         <nav id="linknav">
-            <a href="/index.html">Início</a>
+            <a href="index.html">Início</a>
             <a href="reserved.html">Reservas</a>
             <a href="new-register.html">Novo Parceiro</a>
             <a onclick="logout()">Sair</a>
@@ -63,13 +63,13 @@
 
             <div id="no-reservation-message" style="display:none; text-align: center; padding: 40px; border: 1px dashed #ddd; border-radius: 8px;">
                 <h2 style="color: #666;">Você não possui nenhuma reserva ativa no momento.</h2>
-                <p style="margin-top: 15px;"><a href="/index.html" class="btn-reserve">Faça sua primeira reserva!</a></p>
+                <p style="margin-top: 15px;"><a href="index.html" class="btn-reserve">Faça sua primeira reserva!</a></p>
             </div>
         </div>
     </div>
     <div id="footer-placeholder"></div>
-    <script src="/script-global.js" onload="herdarFooter('/footer.html')"></script>
-    <script src="/backend/reserved-script.js"></script>
+    <script src="script-global.js" onload="herdarFooter('footer.html')"></script>
+    <script src="reserved-script.js"></script>
     <div id="contato"></div>
 </body>
 </html>
