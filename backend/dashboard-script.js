@@ -83,11 +83,11 @@ function reserveRestaurant(buttonElement) {
         localStorage.setItem('selectedRestaurant', JSON.stringify(selectedRestaurantData));
 
         // 5. Redireciona para a página de reserva
-        window.location.href = 'reserve.html';
+        window.location.href = 'pages/reserve.html';
     } else {
         const resp = confirm("Faça login para continuar com a reserva.")
         if (resp) {
-            window.location.href = "login.html"
+            window.location.href = "pages/login.html"
         } 
     }
 }

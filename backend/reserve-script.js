@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!rawDataString) {
         showMessage("Nenhum restaurante selecionado. Redirecionando...", true);
-        setTimeout(() => { window.location.href = 'index.html'; }, 2000);
+        setTimeout(() => { window.location.href = '/index.html'; }, 2000);
         return;
     }
     
