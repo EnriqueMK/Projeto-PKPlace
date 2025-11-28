@@ -18,20 +18,15 @@
         </nav>
         <div id="linha"></div>
         <div id="container-cc">
-            <button type="button" onclick="redRegistrar()">Login</button>
+            <button type="button" onclick="window.location='login.html'">Login</button>
         </div>
     </header>
 
-    <!-- Seção de Cadastro, similar à hero-section -->
     <div class="hero-section">
-        <!-- Overlay aplicado via CSS -->
-        
-        <!-- Lado esquerdo: Texto -->
         <div class="text-side">
             <p>Junte-se ao PK Place e economize nas suas refeições!</p>
         </div>
         
-        <!-- Lado direito: Bloco de cadastro -->
         <div class="login-side">
             <div class="login-container">
                 <form class="login-form" onsubmit="cadastrarUsuario(event)">
@@ -68,19 +63,44 @@
         
     </div>
     
-    <!-- Seção de conteúdo adicional, similar ao index.html -->
     <div id="sobre" class="content-section">
         <div class="content-wrapper">
-            <h1>Bem-vindo ao PK Place</h1>
-            <p style="color: #f12435;">Cadastre-se e comece a economizar em suas refeições favoritas!</p>
-            <p>Ao se cadastrar, você terá acesso a reservas com descontos exclusivos em horários de baixa demanda.</p>
-            <div class="info-card">
-                <h3>Por que se cadastrar?</h3>
-                <p>Descontos de até 50% em restaurantes parceiros, reservas fáceis e recompensas por fidelidade.</p>
+            <div class="boxed">
+                <h1>Bem-vindo ao PK Place</h1>
+                <p style="color: #f12435;">Cadastre-se e comece a economizar em suas refeições favoritas!</p>
+                <p>Ao se cadastrar, você terá acesso a reservas com descontos exclusivos em horários de baixa demanda. Nossa plataforma usa a demanda do restaurante em tempo real para te dar até **50% de desconto**.</p>
+                
+                <br>
+                <div class="boxed">
+                    <p style="text-align: center;">VANTAGENS EXCLUSIVAS:<div style="font-size: 48px; font-family: Impact; letter-spacing: 2px; color:#f12435; text-align: center;">CLIENTE FIDELIDADE</div></p>
+                </div>
+                <br>
+
+                <p>Crie sua conta em poucos segundos! É simples, rápido e te coloca a um passo de economizar em restaurantes de alta qualidade.</p>
+            
+                <img src="https://img.freepik.com/fotos-premium/equipe-feliz-do-restaurante-que-esta-junto-na-cozinha-comercial_107420-21914.jpg" style="border-radius: 30px; object-fit: cover; object-position: 50% 50%;">
+            </div>
+
+            <div class="info-cards-container">
+                <div class="info-card">
+                    <h3>Por que se cadastrar?</h3>
+                    <p>Descontos de até 50% em restaurantes parceiros.</p>
+                    <p>Reservas fáceis e rápidas através do site.</p>
+                    <p>Recompensas e promoções por fidelidade.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Como funciona?</h3>
+                    <p>1. **Crie sua Conta** - É rápido e grátis.</p>
+                    <p>2. **Navegue** - Veja os descontos disponíveis perto de você.</p>
+                    <p>3. **Reserve** - Garanta seu desconto no horário de sua preferência.</p>
+                </div>
+                 <div class="info-card">
+                    <p>Não perca tempo! Faça seu cadastro agora e venha aproveitar tudo o que a rede PK Place pode te proporcionar. A mesa que mais precisa de você, paga menos!</p>
+                </div>
             </div>
         </div>
     </div>
-    <!-- Rodapé -->
     <div id="footer-placeholder"></div>
     <script src="script-global.js" onload="herdarFooter('footer.html')"></script>
     <script src="register-script.js"></script>

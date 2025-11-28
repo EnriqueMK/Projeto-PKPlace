@@ -1,3 +1,13 @@
+// botao de redirecionamento
+document.addEventListener("DOMContentLoaded", function () {
+    const logo = document.querySelector(".logo-text");
+    if (logo) {
+        logo.style.cursor = "pointer";
+        logo.addEventListener("click", function () {
+            window.location.href = "index.html";
+        });
+    }
+});
 function loginUsuario(event) {
     event.preventDefault();
 

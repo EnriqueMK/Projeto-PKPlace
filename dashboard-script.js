@@ -1,3 +1,13 @@
+// botao de redirecionamento
+document.addEventListener("DOMContentLoaded", function () {
+    const logo = document.querySelector(".logo-text");
+    if (logo) {
+        logo.style.cursor = "pointer";
+        logo.addEventListener("click", function () {
+            window.location.href = "index.html";
+        });
+    }
+});
 // Map para armazenar o texto de desconto gerado dinamicamente
 const dynamicDiscountMap = new Map();
 

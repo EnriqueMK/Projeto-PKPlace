@@ -20,12 +20,11 @@
         </nav>
         <div id="linha"></div>
         <div id="container-cc">
-            <button type="button" onclick="redRegistrar()">criar conta</button>
-            <button type="button" onclick="redLogin()">Entrar</button>
+            <button type="button" onclick="window.location.href='register.html'">Criar Conta</button>
+            <button type="button" onclick="window.location.href='login.html'">Entrar</button>
         </div>
     </header>    
 
-    <!-- Banner de Boas Vindas ( Dashboard ) -->
     <div class="banner-tras"></div>
     <div class="banner-placeholder-area"> 
         <div class="welcome-container">
@@ -42,7 +41,6 @@
         </div>
     </div>
 
-    <!-- Lista de Restaurantes -->
     <div class="content-section">
         <div class="content-wrapper">
             <div class="header-search-container">
@@ -184,7 +182,37 @@
         </div>
     </div>
 
-    <!-- Rodapé -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2>Perguntas Frequentes</h2>
+            
+            <details class="faq-item">
+                <summary>O que é o PK Place?</summary>
+                <p>O PK Place é uma ferramenta de reservas que transforma o movimento do restaurante em desconto para você. Somos uma rede inovadora que conecta você aos melhores restaurantes parceiros, oferecendo experiência gastronômica de alta qualidade com um diferencial exclusivo: descontos proporcionais à demanda.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Qual o desconto máximo que posso obter?</summary>
+                <p>Você pode receber até 50% de desconto na sua reserva, dependendo da demanda do restaurante no horário escolhido.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Como funcionam os descontos e a reserva?</summary>
+                <p>Você acessa a página inicial e confere os descontos disponíveis dentro de uma hora. Ao clicar em reservar, você ativa a reserva junto ao desconto válido em um intervalo de 2 horas. No restaurante, basta apresentar seu nome e todos da sua mesa recebem o desconto previsto.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Quantas unidades parceiras o PK Place tem?</summary>
+                <p>Atualmente, contamos com 9 unidades PK Place espalhadas por São Paulo.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Como posso me tornar um parceiro do PK Place?</summary>
+                <p>Para se tornar parte da rede, entre em contato ou vá até a opção de "Novo Parceiro" (no menu superior). Preencha o formulário e aguarde uma resposta.</p>
+            </details>
+        </div>
+    </section>
+
     <div id="footer-placeholder"></div>
     <script src="script-global.js" onload="herdarFooter('footer.html')"></script>
     <script src="dashboard-script.js"></script>

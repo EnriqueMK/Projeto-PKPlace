@@ -96,4 +96,5 @@ function scrollDishes(direction) {
     } else {
         container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
+    
 }

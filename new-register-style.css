@@ -23,13 +23,13 @@ body {
 /* Container de Fundo Escuro (Overlay) - Centraliza a caixa do formulário */
 .form-overlay {
     position: absolute;
-    top: 70px; /* Abaixo do header */
+    top: 70px;
     left: 0;
     width: 100%;
     min-height: calc(100vh - 70px);
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     z-index: 10;
     

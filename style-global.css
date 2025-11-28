@@ -72,7 +72,7 @@
     font-weight: bold;
     transition: color 0.3s ease;
     font-size: 1.1em;
-    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    font-family: 'Poppins', 'Segoe UI', sans-serif; /* FONTE MANTIDA */
     cursor: pointer;
 }
 
@@ -148,17 +148,18 @@
     height: 500%;
 }
 
-/* Rodapé */
+/* --- ESTILOS DO RODAPÉ --- */
+
 .main-footer {
     background-color: var(--cor-fundo-footer);
     color: var(--cor-texto-footer);
-    padding: 40px 20px;
+    padding: 40px 20px 20px 20px;
     border-top: 5px solid var(--vermelho-principal);
 }
 
 .footer-content {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -166,8 +167,9 @@
 }
 
 .footer-section {
-    flex: 1;
+    flex: 1; 
     min-width: 200px;
+    max-width: calc(25% - 22.5px);
 }
 
 .footer-section h4 {
@@ -175,6 +177,7 @@
     margin-bottom: 15px;
     border-bottom: 2px solid var(--vermelho-escuro);
     padding-bottom: 5px;
+    white-space: nowrap;
 }
 
 .footer-section p, .footer-section ul {
@@ -196,11 +199,25 @@
     text-decoration: underline;
 }
 
+.footer-logo-container {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo {
+    max-width: 100px;
+    height: auto;
+    display: inline-block;
+}
+
 .footer-bottom {
     text-align: center;
-    margin-top: 30px;
-    padding-top: 20px;
+    margin-top: 20px;
+    padding-top: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.8em;
     color: #aaa;
 }
+
+/* Fim dos estilos de rodapé */
