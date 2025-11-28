@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* -------------------------------------- */
 /* ESTILOS GERAIS E AJUSTE DO BODY */
 /* -------------------------------------- */
@@ -31,7 +32,7 @@ body {
     width: 100%;
     
     /* Imagem de fundo e Parallax */
-    background-image: url(/imagens/login/Carlotta-Basement-Credit-Jerome-Galland.jpg); 
+    background-image: url(Carlotta-Basement-Credit-Jerome-Galland.jpg); 
     background-size: cover;          
     background-position: center;     
     background-repeat: no-repeat;    

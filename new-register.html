@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novo Parceiro</title>
-    <link rel="shortcut icon" href="//imagens/icone/LogoPKPlace.png" type="image/x-icon">
-    <link rel="stylesheet" href="/estilos/new-register-style.css">
-    <link rel="stylesheet" href="/style-global.css">
-    <link rel="stylesheet" href="/estilos/dashboard-style.css">
+    <link rel="shortcut icon" href="LogoPKPlace.png" type="image/x-icon">
+    <link rel="stylesheet" href="new-register-style.css">
+    <link rel="stylesheet" href="style-global.css">
+    <link rel="stylesheet" href="dashboard-style.css">
 </head>
 <body>
     <header class="fixed-header">
-        <img src="//imagens/icone/LogoPKPlace.png" class="logo-text">
+        <img src="LogoPKPlace.png" class="logo-text">
         <nav id="linknav">
-            <a href="/index.html">Início</a>
-            <a href="/pages/reserved.html">Reservas</a>
-            <a href="/pages/new-register.html">Novo Parceiro</a>
+            <a href="index.html">Início</a>
+            <a href="reserved.html">Reservas</a>
+            <a href="new-register.html">Novo Parceiro</a>
             <a onclick="logout()">Sair</a>
         </nav>
         <div id="linha"></div>
         <div id="container-cc">
-            <button type="button" onclick="window.location.href='register.html'">criar conta</button>
-            <button type="button" onclick="window.location.href='login.html'">Entrar</button>
+            <button type="button" onclick="redRegistrar()">criar conta</button>
+            <button type="button" onclick="redLogin()">Entrar</button>
         </div>
     </header>
     <div id="divisao"></div>
@@ -78,8 +78,8 @@
         </div>
     </div>
     <div id="footer-placeholder"></div>
-    <script src="/script-global.js" onload="herdarFooter('/footer.html')"></script>
-    <script src="/backend/reserved-script.js"></script>
+    <script src="script-global.js" onload="herdarFooter('footer.html')"></script>
+    <script src="reserved-script.js"></script>
     <div id="contato"></div>
 </body>
 </html>

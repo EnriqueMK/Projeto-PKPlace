@@ -19,7 +19,7 @@ function loginUsuario(event) {
             );
             
             alert("Login realizado com sucesso! Redirecionando...")
-            window.location.href = "/index.html"
+            window.location.href = "index.html"
         } else {
             msgError.style.color = "red";
             msgError.innerHTML = "ERRO! Email ou senha incorretos.";
