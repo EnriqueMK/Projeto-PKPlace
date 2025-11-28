@@ -18,6 +18,10 @@ body {
     background-attachment: fixed;
 }
 
+#linknav a:nth-child(1) {
+    margin-left: 200px;
+}
+
 #container-cc > button[type="button"]:nth-child(1) {
     background-color: white;
     padding: 8px 18px;
