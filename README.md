@@ -22,4 +22,4 @@ O PKPlace ataca essa dor de negócio:
 • Fideliza Clientes: Transforma ofertas em incentivos para visitas recorrentes.
 
 
-## https://enriquemk.github.io/Projeto-PKPlace/
+## [https://enriquemk.github.io/Projeto-PKPlace/](https://enriquemk.github.io/Projeto-PKPlace-Web/)
