@@ -49,3 +49,4 @@ function logout() {
         alert("Você não está logado!")
     }
 }
+
